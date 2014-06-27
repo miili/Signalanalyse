@@ -1,4 +1,7 @@
+
 \chapter{Einleitung}
+
+
 
 Im allgemeinen Sprachgebrauch wird unter {\bf Signal} ein Zeichen verstanden, mit dem eine Nachricht übertragen wird oder ein Verhalten, das eine Information übermittelt. Durch die Geophysik - aber auch durch andere Natur- oder Ingenieurwissenschaften - werden physikalische Messgrößen genutzt, um den Untersuchungsgegenstand zu analysieren. In einer physikalische Messgröße ist ein Signal vorhanden, wenn sie das Auftreten eines interessierenden Phänomens anzeigt. 
 
@@ -16,7 +19,7 @@ Man unterscheidet weiter zwischen \textbf{analoger Signalverarbeitung} und \text
 
 Bei der digitalen Signalverarbeitung werden digitale Wertereihen, also Zahlenkolonnen, mit mathematische Methoden bearbeitet. Digitale Signalverarbeitung gibt es nicht erst seit der Einführung von Computern. Rechnen mit Messwerten, um eine Messgröße besser zu bewerten oder interpretiert zu können, gibt es seit der Antike. Anhand von Auflistungen der Warenbestände zu einer bestimmten Zeit kann geprüft werden, ob die Warenbestände einen bestimmten Wert unterschreiten, um sie nachzubestellen. Wenn die entsprechenden Zahlen den Schwellwert unterschreiten tritt ein Signal auf, dass dann eine Aktion zur Folge hat. Auch die regelmäßige Positionsbestimmung auf See, eine darauf beruhende Vorhersage des Kurses, die gegebenenfalls eine Kursänderung zur Folge hat, wenn das Ziel mit dem gegenwärtigen Kurs nicht erreicht wird, kann als Beispiel digitaler Signalverabeitung verstanden werden. 
 
-Mit dem Einsatz von Computern hat die digitale Signalverarbeitung eine enorme Verbreitung gefunden. Geophysikalische Beispiele sind die common mid point Stapelung (CMP-Stapelung) in der Reflexionsseismik, die digitale Filerung seismischer, seismologischer, gravimetrischer oder magnetischer Daten, die Bestimmung der Impedanz im Fall elektromagnetischer oder magnetotellurischer Messungen oder auch die Bearbeitung von GPS Signalen zur Positionsbestimmung. Auch die Berechnung der Eigenfrequenzen der Erde anhand von Amplitudenspektren seismologischer Aufzeichnungen gehört zur digitalen Signalverarbeitung. Den geophysikalischen Anwendungen gingen historisch Anwendungen in der Elektrotechnik und der Kommunikationsverarbeitung voraus. 
+Mit dem Einsatz von Computern hat die digitale Signalverarbeitung eine enorme Verbreitung gefunden. Geophysikalische Beispiele sind die \textit{common mid point} Stapelung (CMP-Stapelung) in der Reflexionsseismik, die digitale Filterung seismischer, seismologischer, gravimetrischer oder magnetischer Daten, die Bestimmung der Impedanz im Fall elektromagnetischer oder magnetotellurischer Messungen oder auch die Bearbeitung von GPS Signalen zur Positionsbestimmung. Auch die Berechnung der Eigenfrequenzen der Erde anhand von Amplitudenspektren seismologischer Aufzeichnungen gehört zur digitalen Signalverarbeitung. Den geophysikalischen Anwendungen gingen historisch Anwendungen in der Elektrotechnik und der Kommunikationsverarbeitung voraus. 
 
 Vielfältige Beispiele der digitalen Signalverarbeitung finden sich in der Astrophysik, der Meteorologie, Ozeanographie, aber auch der Medizin oder Ökonomie: Elektrische Signale des Herzen (Elektrokardiogramm) oder des Gehirns (Elektorencephalogramm) oder auch Börsenkurse werden digital bearbeitet und analysiert.
 
@@ -52,7 +55,8 @@ Silvia, M.T., Robinson, E.A., 1979. Deconvolution of Geophysical Time Series in 
 \section{Einordnung der Geophysikalischen Signalanalyse}
 Am Anfang einer geophysikalischen Untersuchung steht die Aufgabenstellung, aufgrund derer eine geeignete Messung durchgeführt wird. Diese liefert eine kontinuierliche Meßgröße, die nach einer Diskretisierung - meistens mit einem Analog-Digital-Wandler - in Form einer diskreten Wertereihe vorliegt. Die nächste Aufgabe ist das Datenmanagement, das dem Nutzer die Daten in geeigneter Form zur Verfügung stellt. Dann schließt sich die digitale Signalverarbeitung an, der eine Modellierung oder Inversion der Daten folgen kann. Schließlich werden die Ergebnisse interpretiert und entsprechend dokumentiert.  
 
-Liegen nur wenige Messdaten vor, ist das {\bf Datenmanagement} eine wichtige, aber relative einfache Aufgabe. Allerdings werden in der Geophysik oft erhebliche Datenmengen verarbeitet (bis mehrere TByte). Dann stellt ist es eine Herausforderung, die Daten möglichst lückenlos und fehlerfrei von dem Messort zu einem Datenarchiv zu übertragen und dort sicher zu speichern. Im Fall permanenter seismologischer Stationen werden die Daten heute in realtime (Echtzeit) an Datenzentren wie GEOFON, ORFEUS oder IRIS übertragen, die sie dann auch dem Nutzer durch geeignete Portale zur Verfügung stellen. Für große Datenmengen wird dem Nutzer neuerdings auch Software zur automatischen Abfrage der Daten bereitgestellt. Wichtig ist, dass auch sogenannte Metadaten verwaltet werden, ohne die die Messwerte nicht interpretiert werden können. Diese enthalten den Ort der Messungen, den Namen des Messgerätes und dessen Eigenschaften, den Zeitpunkt der Messungen und weitere Informationen wie den Namen von Netzwerken oder Messkampagnen oder die Messbedingungen. Es muss deutlich werden: Wer hat wann, wo, mit welchen Gerät und welchen Einstellungen, unter welchen Bedingungen, was gemessen? Auch der Eigentümer der Daten und die Nutzungsbedingungen können in den Metadaten enthalten sein.
+Liegen nur wenige Messdaten vor, ist das 
+eine wichtige, aber relative einfache Aufgabe. Allerdings werden in der Geophysik oft erhebliche Datenmengen verarbeitet (bis mehrere TByte). Dann stellt ist es eine Herausforderung, die Daten möglichst lückenlos und fehlerfrei von dem Messort zu einem Datenarchiv zu übertragen und dort sicher zu speichern. Im Fall permanenter seismologischer Stationen werden die Daten heute in realtime (Echtzeit) an Datenzentren wie GEOFON, ORFEUS oder IRIS übertragen, die sie dann auch dem Nutzer durch geeignete Portale zur Verfügung stellen. Für große Datenmengen wird dem Nutzer neuerdings auch Software zur automatischen Abfrage der Daten bereitgestellt. Wichtig ist, dass auch sogenannte Metadaten verwaltet werden, ohne die die Messwerte nicht interpretiert werden können. Diese enthalten den Ort der Messungen, den Namen des Messgerätes und dessen Eigenschaften, den Zeitpunkt der Messungen und weitere Informationen wie den Namen von Netzwerken oder Messkampagnen oder die Messbedingungen. Es muss deutlich werden: Wer hat wann, wo, mit welchen Gerät und welchen Einstellungen, unter welchen Bedingungen, was gemessen? Auch der Eigentümer der Daten und die Nutzungsbedingungen können in den Metadaten enthalten sein.
 
 Die {\bf digitale Signalverarbeitung} umfasst 1. die Darstellung der Daten, 2. die digitale Bearbeitung der Daten und 3. die Schätzung von Signalparametern. Diese Schritte können wiederholt, in beliebiger Reihenfolge und iterativ erfolgen, bis das Signal in der gewünschten Form dargestellt wird. Oft steht interaktive Software für die digitale Signalverarbeitung zur Verfügung. Im Fall großer Datenmengen oder Bearbeitungen in realtime werden die Bearbeitungsschritte zumindest teilweise automatisiert. Oft muss eine optimale Strategie für die Bearbeitung der Daten in vielen Versuchen entwickelt werden. Die automatische Bearbeitung der Daten (mitunter in realtime) ist eine aktuelle Herausforderung bei der Bearbeitung geophysikalischer Daten.
 
@@ -104,7 +108,7 @@ An den Orten $(x,y)$ werden Vektoren dargestellt, z.B. um Deformationen zu besch
 \begin{itemize}
 \item Derartige Messwerte - z.B. ein Dreikomponenten-Seismogramm - können auf einfachere Darstellungen zurückgeführt werden, indem die Komponenten des Seismogramms einzeln dargestellt werden. Es sind aber auch Projektionen der Partikelbewegung auf 3 senkrechte Ebenen möglich, wobei die Zeit farblich gekennzeichnet werden kann.
 \end{itemize}
-Weiterhin wurden spezielle Plots z.B. für die Darstellung von Herdflächenlösungen in Form sogenannter beachballs entwickelt. 
+Weiterhin wurden spezielle Plots z.B. für die Darstellung von Herdflächenlösungen in Form sogenannter \textit{beachballs} entwickelt. 
 
 \section{Bearbeitung der Daten}
 Im Folgenden werden Beispiele für die digitale Bearbeitung der Daten genannt.
@@ -115,10 +119,10 @@ Im Folgenden werden Beispiele für die digitale Bearbeitung der Daten genannt.
 \item Interpolation
 \item Extrapolation
 \item Approximation auch Komprimierung
-\item Resampling
-\item Korrelation
+\item Resampling des Signals
+\item Korrelation : Korrelationsanalyse bei Vibroseismik, Kreuzkorrelation
 \item Filterung und Wichtung
-\item Transformationen (z.B. Berechnung von Spektren)
+\item Transformationen (z.B. Fouriertransformation zur Berechnung von Spektren)
   \end{itemize}
 
 \section{Schätzung von Signalparametern}
@@ -127,12 +131,28 @@ Oft werden die bearbeiteten Daten nicht nur graphisch dargestellt, sondern es we
 \item Signal-Rausch-Verhältnis, aber auch andere Qualitätsmaße
 \item Frequenzspektren
 \item Übertragunsfunktionen von Messgeräten und deren Korrektur
-\item Herd-Zeit-Funktionen, Wellenform des angeregten Signals
-\item Schätzung einfacher Signalparameter wie Laufzeiten, Amplituden, Halbwertsbreiten etc., aber auch Schätzung von Streuamplituden durch Rückprojektion in einen Modellraum z.B. CMP-Stapelung
+\item Herd-Zeit-Funktionen:(Abstrahlung im Herd), Wellenform des angeregten Signals
+\item Schätzung einfacher Signalparameter wie Laufzeiten (Signaldetektion), Amplituden, Halbwertsbreiten etc., aber auch Schätzung von Streuamplituden durch Rückprojektion in einen Modellraum z.B. CMP-Stapelung
 \item Schätzung von ARMA-Parametern, Poles and Zeros, Amplitude bzw. Phase einer bestimmten vorgegebenen Frequenz, Dämpfungsparamtern elastischer Wellen, Phasen- oder Gruppengeschwindigkeiten dispersiver Signale, Polarisationsparamter elastischer Wellen (z.B. Azimut, Einfallswinkel, Elliptizität), Eigenfrequenzen
 \item Vorhersagen, Vorhersagefehler
-\item Mustererkennung, Bestimmung von Ähnlichkeiten
+\item Mustererkennung, Bestimmung von Ähnlichkeiten (z.B. Auto- und Kreuzkorrelation)
+\item Slowness (Zeit-Frequenz-Analyse, k-f-Analyse)
   \end{itemize}
 
+
 \section{Modellierung/Inversion}
-Während durch die Signalverarbeitung Parameter des Signals, z.B. seiner Form, geschätzt werden, werden durch Modellierung und Inversion Parameter eines physikalischen Modells geschätzt, mit denen die Messung möglichst gut erklärt werden kann. Eine Trend in einer P-Wellenlaufzeitmessung kann als Signal bezeichnet werden. Der Anstieg wäre dann ein Signalparameter der z.B. durch einen Halbraum mit einer bestimmten P-Wellengeschwindigkeit erklärt werden kann. Die P-Wellengeschwindigkeit ist der Parameter des physikalischen Modells - in diesem Fall eines Halbraums. Generell muss bei der Inversion zunächste eine geeignete Parametrisierung der relevanten gesteinsphysikalischen Parameter vorgenommen werden. Das geschieht allgemein durch Entwicklung nach Basisfunktionen, die ein-, zwei- oder auch dreidimensional sein können.  Weiter müssen für vorgegebene Parameter - Wichtungen der Basisfunktionen - theoretische Messwerte bestimmt werden können. Bei der Inversion werden dann durch eine möglichst effektive Strategie Parameter gesucht, die in einem gewissen Sinn optimal sind, beispielsweise die Fehlerquadratsumme zwischen gemessenen Werten und theoretischen Werten minimieren. Idealerweise werden noch mögliche Wertebereiche für die Parameter angegeben und Mehrdeutigkeiten untersucht.  
+Während durch die Signalverarbeitung Parameter des Signals, z.B. seiner Form, geschätzt werden, werden durch Modellierung und Inversion Parameter eines physikalischen Modells geschätzt, mit denen die Messung möglichst gut erklärt werden kann. Eine Trend in einer P-Wellenlaufzeitmessung kann als Signal bezeichnet werden. Der Anstieg wäre dann ein Signalparameter der z.B. durch einen Halbraum mit einer bestimmten P-Wellengeschwindigkeit erklärt werden kann. Die P-Wellengeschwindigkeit ist der Parameter des physikalischen Modells - in diesem Fall eines Halbraums. Generell muss bei der Inversion zunächst eine geeignete Parametrisierung der relevanten gesteinsphysikalischen Parameter vorgenommen werden. Das geschieht allgemein durch Entwicklung nach Basisfunktionen, die ein-, zwei- oder auch dreidimensional sein können.  Weiter müssen für vorgegebene Parameter - Wichtungen der Basisfunktionen - theoretische Messwerte bestimmt werden können. Bei der Inversion werden dann durch eine möglichst effektive Strategie Parameter gesucht, die in einem gewissen Sinn optimal sind, beispielsweise die Fehlerquadratsumme zwischen gemessenen Werten und theoretischen Werten minimieren. Idealerweise werden noch mögliche Wertebereiche für die Parameter angegeben und Mehrdeutigkeiten untersucht.  
+
+\section{Ablauf einer geophysikalischen Untersuchung}
+Vor jeder geophysikalischen Untersuchung muss die Aufgabenstellung klar definiert werden. Die Messmethoden werden ausgewählt. Die Genauigkeit der jeweiligen Methoden sollte abgeschätzt werden. Danach werden die Messungen durchgeführt.
+ Der zweite Schritt ist die Diskritisierung der Messergebnissen mit Hilfe der Analog-Digital-Umwandlung ( AID-Wandler). Damit bekommt man eine diskritisierte Wertereihe ( z.B. Punktmessung der Schwerebeschlunigung). Anschliessend erfolgt das Datenmanagment ( Danten-Kompression, Formatierung ).
+ Der dritte Schritt bei einer geophysikalischen Untersuchung erfolgt bei der Signalbearbeitung.  Dabei werden folgende Aktionen durchgeführt: 
+ \begin{itemize}
+\item Visualisierung der Messgröße ( Darstellung der Daten, Farbskala einführen)
+\item Bearbeitung von Daten
+\item Signalparameter abschätzen
+
+  \end{itemize}
+ Der nächste Schritt ist die Modellierung/Inversion der Daten ( Physikalische Parameter, Vorwärtsmodellierung/Inversionsmodellierung).
+ Im Anschluss wird die Interpretation durchgeführt. Die Interpretaion ist dann das Endergebnis,  das dem Auftraggeber präsentiert wird. 
+
