@@ -2,6 +2,13 @@ import matplotlib.pyplot as plt
 import numpy as np
 from datetime import date
 
+
+def simpleaxis(ax):
+  ax.spines['top'].set_visible(False)
+  ax.spines['right'].set_visible(False)
+  ax.get_xaxis().tick_bottom()
+  ax.get_yaxis().tick_left()
+
 class meteo(object):
   def __init__(self, filename=None):
     if filename is not None:
@@ -41,7 +48,7 @@ class meteo(object):
 
     ax.set_ylabel('Temperatur $^\circ$C')
     ax.set_ylim(-10, 30)
-    
+        
     fig.autofmt_xdate()
 
     ax.set_title('Temperaturaufzeichnung in Kiel-Holtenau')
@@ -56,4 +63,4 @@ ax = fig.gca()
 met.selectYear(2011).plotTemp(fig)
 
 fig.set_size_inches(10,5)
-fig.savefig('../fig/temperature-diagram_kiel.png', dpi=150)
+fig.savefig('../temperature-diagram_kiel.png', dpi=150)
