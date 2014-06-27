@@ -1,0 +1,26 @@
+\chapter{Stapelung von Signalen}
+
+\underline{Bsp.:} Überlagerung zweier Signale mit gleicher Frequenz $\omega_0$, aber unterschiedlicher Phase.  Das ist ein einfaches Beispiel für eine Stapelung mit $t_i\not= 0$ und $n_i=0$. Die zwei Signale sind:\\
+$s_1(t)=cos(\omega_0 t+\varphi_1)$ und $s_2(t)=cos(\omega_0 t+\varphi_2)$.\\
+Mit dem Additionstheorem ergibt die Überlagerung:\\
+$s_1(t)+s_2(t)=2cos(\omega_0 t + \frac {\varphi_1 + \varphi_2}{2})cos(\frac {\varphi_1 - \varphi_2}{2})$.\\
+D.h. die Frequenz ändert sich nicht! Die Phasenverschiebung wird gemittelt und es ergibt sich ein zeitunabhängiger Wichtungsfaktor, der von der Phasendifferenz abhängt. Für $\varphi_1-\varphi_2= \pi $ löschen sich die Signale gegenseitig aus.\\
+Für $|\varphi_1-\varphi_2|\le \frac{\pi}{2}$, das enspricht einem Phasenunterschied von $\frac{\lambda}{4}$ gilt für den Wichtungsfaktor $cos(\frac{\varphi_1-\varphi_2}{2})\ge 0.7071$ und es liegt konstruktive Interferenz vor.\\ 
+
+\underline{Bsp.:}Überlagerung zweier Signale mit unterschiedlicher Frequenz:\\
+$s_1(t)=cos(\omega_1 t)$ und $s_2=cos(\omega_2 t)$.\\
+Mit dem Additionstheorem folgt:\\
+ $s_1(t)+s_2(t)= 2 cos(\frac{\omega_1+\omega_2}{2}t)cos(\frac{\omega_1-\omega_2}{2}t)$.
+Es ergibt sich eine Schwebung mit einer hochfrequenten Trägerfrequenz $\frac{\omega_1+\omega_2}{2}$ und einer niederfrequenten Amplitudenmodulation mit der Frequenz $f_A = \frac{1}{2\pi}\frac{\omega_1-\omega_2}{2}$. Interessant ist, dass zu den Zeitpunkten $\frac{n}{2f_A}+\frac{1}{4f_A}, n \in G$ ein Phasensprung auftritt. Die Maxima der Einhüllenden sind ebenfalls $\frac{1}{2f_A}$ entfernt. Beachte: wird eine Fourieranalyse von diesem Signal gemacht, treten nur die Frequenzen $\omega_1$ und $\omega_2$ auf. Die Formulierung mit amplitudenmodulierter Trägerfrequenz ist jediglich äquivalent.\\ 
+
+\underline{Bsp.:} Ein Signal soll zwei Frequenzen $\omega_1$ und $\omega_2$ enthalten: $s(t) = cos(\omega_1t) + cos(\omega_2t)$. Betrachtet wird die Überlagerung zweier zeitverschobener Signale: \\
+$s_1(t)=s(t+t_1)$ und $s_2(t)=s(t+t_2)$.\\
+Mit dem Additionstheorem folgt:\\
+ $s_1(t)+s_2(t)= 2 cos(\omega_1 t +\omega_1\frac{t_1+t_2}{2})cos(\omega_1\frac{t_1-t_2}{2})+2 cos(\omega_2 t +\omega_2\frac{t_1+t_2}{2})cos(\omega_2\frac{t_1-t_2}{2}).$
+\\ 
+
+\begin{itemize}
+\item Die Frequenzen $\omega_1$ und $\omega_2$ bleiben erhalten.
+\item $cos(\omega_1\frac{t_1-t_2}{2})=f_1$ und $cos(\omega_2\frac{t_1-t_2}{2})=f_2$ sind zeitunabhängige Wichtungsfaktoren für die beiden Frequenzen.
+\item Für $\omega_1<\omega_2$ ist $f_1>f_2$, d.h. die Stapelung ist ein Tiefpass. Die Bedingung für konstruktive Interferenz ist für tiefe Frequenzen eher erfüllt als für hohe Frequenzen. 
+\end{itemize}
