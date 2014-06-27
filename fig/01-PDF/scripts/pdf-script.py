@@ -64,8 +64,8 @@ for i, pdf in enumerate(pdfs):
   simpleaxis(ax)
   
   if i == 0:
-    ax.set_title('Wahrscheinlichkeitsverteilungen', fontsize=10)
-    cax.set_title('Kumulative Wahrscheinlichkeitsdichte', fontsize=10)
+    cax.set_title('Wahrscheinlichkeitsverteilungen', fontsize=10)
+    ax.set_title('Wahrscheinlichkeitsdichteverteilung', fontsize=10)
     
 fig.set_size_inches(10, 10)  
-fig.savefig('dichtefunktionen.png', dpi=150)
+fig.savefig('../dichtefunktionen.png', dpi=150)

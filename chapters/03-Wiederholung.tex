@@ -1,92 +1,219 @@
 \chapter{Wiederholung}
-\underline{Faltung} \\
-kontinuierlich: $x_1(t) \ast x_2(t)= \int\limits_{-\infty}^{\infty} x_1(t')x_2(t-t')dt'$\\
-diskret: $x_{1i} \ast x_{2i} = \sum\limits_{j=-\infty}^{\infty} x_{1j} x_{2i-j}$\\
-Beschreibt Wirkung eines linearen Systems. $x_1(t)$: Input, $x_2(t)$: Impulsantwort des linearen Systems, $x_1(t) \ast x_2(t)$: Output. \\
-\\
-\underline{Korrelation (deterministisch)}\\
-kontinuierlich: $\rho_{x_1x_2}(t)= \int\limits_{-\infty}^{\infty} x_1(t')x_2(t'+t)dt'$\\
-diskret: $\rho_{x_1x_2}(i) = \sum\limits_{j=-\infty}^{\infty} x_{1j} x_{2j+i}$\\
-Maß für Ähnlichkeit von$ x_1(t)$ und $x_2(t)$\\
-KKF (Kreuzkorrelationsfunktion): Korrelation zweier unterschiedlicher Funktionen\\
-AKF (Autokorrelationsfunktion): Korrelation der Funktion mit sich selbst\\
-\\
-\underline{Fouriertransformation}\\
-kontinuierliche Funktion $x(t)$, kontinuierliches Spektrum (Spektraldichte) $X(\omega)$:\\ 
-${\bf F}\{x(t)\} = X(\omega)=\int\limits_{-\infty}^{\infty} x(t) e^{-i\omega t}dt$\\
-${\bf F}^{-1}\{X(\omega)\} = x(t)=\frac {1}{2\pi}\int\limits_{-\infty}^{\infty} X(\omega) e^{i\omega t}d\omega$\\
-DFT (Diskrete Fouriertransformation): diskrete Wertereihe $\{x_j\}$,diskretes Spektrum (Spektraldichte) $\{X_k\}, ~~ j,k=0,\dots,N-1$.\\
-${\bf DFT}\{ x_j \} = X_k=\sum\limits_{j=0}^{N-1}x_j e^{-i2\pi jk/N}$\\
-${\bf DFT}^{-1}\{X_k\} = x_j=\frac{1}{N} \sum\limits_{k=0}^{N-1}X_k e^{-2\pi jk/N}$\\
-$\{x_j\}$,$\{X_k\}$\hspace*{1cm} periodisch, Periode: N\\
-\\
-\underline{Sätze}\\
-Umkehrsatz: ${\bf F} \{X(\omega)\}=2\pi x(-t)$\\
-(Vergleiche: ${\bf F} \{x(t)\}=X(\omega)$ und $ {\bf F}^{-1}\{X(\omega)\}=x(t)$)\\
-Verschiebungssatz: ${\bf F} \{x(t+b)\}=e^{ib\omega}X(\omega)$\\
-($e^{ib\omega}$ ändert Phase nicht das Amplitudenspektrum. Linearer Trend wird zur Phase addiert.)\\
-Differentiationssatz: ${\bf F}\{x^\prime(t)\}=i\omega X(\omega)$\\
-(Der Faktor $i \omega $ bewirkt eine Phasenverschiebung um $\mbox{sgn}(\omega) 90^\circ$ und hohe Frequenzen werden verstärkt.)\\
-Integrationssatz: ${\bf F} \{\int\limits_{-\infty}^{t} x(t')dt'\}=\frac{1}{i\omega} X(\omega)$\\
-(Der Faktor $\frac{1}{i\omega}$ bewirkt eine Phasenverschiebung um $-\mbox{sgn}(\omega) 90^\circ$ und tiefe Frequenzen werden verstärkt.)\\
-Faltungssatz: ${\bf F} \{x_1(t) \ast x_2(t)\}= X_1(\omega) X_2(\omega)$\\
-(Faltung im Zeitbereich bedeutet Multiplikation im Frequenzbereich. Umgekehrt entspricht auch eine Multiplikation im Zeitbereich bis auf einen konstanten Faktor einer Faltung der Spektren im Frequenzbereich.)\\
-Korrelationssatz: ${\bf F} \{\rho_{x_1x_2}(t)\}= X_1^\ast(\omega) X_2(\omega)$\\
-(Beachten Sie den Unterschied zum Faltungssatz. Wie beim Faltungssatz werden die Amplitudenspektren multipliziert. Die Phasenspektren werden aber subtrahiert, bei der Faltung addiert.)\\
-Rayleigh-Theorem: $\int\limits_{-\infty}^{\infty} | x(t) |^2 dt = \frac{1}{2\pi} \int\limits_{-\infty}^{\infty} | X(\omega)|^2 d\omega$\\
-(Power im Zeitbereich = $\frac{1}{2\pi}$ Power im Frequenzbereich.)\\
-Ähnlichkeitssatz: ${\bf F} \{x(at)\}= \frac{1}{a} X(\frac{\omega}{a})$\\ 
-(Stauchung einer Funktion bzgl. Zeit im Zeitbereich entspricht Dehnung des Spektrums bzgl. Frequenz im Frequenzbereich.)
-\\
-\\
-\underline{Darstellung des Spektrums}\\
-Die DFT berechnet das Spektrum $X_k$ für $\omega_k= k \Delta \omega, k=0,\dots, N-1$ im Intervall $[0,2\omega_{Ny}]$. Für die Nyquistkreisfrequenz gilt $\omega_{Ny} = \frac {\pi} {\Delta t N}$ und für den Abtastschritt im Frequenzbereich bzgl. der Kreisfrequenz gilt $\Delta\omega=\frac{2\pi}{\Delta t N} = \frac{2\pi}{T}$ , wobei $T$ die Länge des Beobachtungsintervalls im Zeitbereich ist. Bzgl. der Frequenz wird das Spektrum $X_k$ für die Frequenzen  $f_k, k=0,\dots, N-1$ im Intervall $[0,2f_{Ny}]$ berechnet. Die Nyquistfrequenz ist  $f_{Ny} = \frac {1} {2 \Delta t N}$ und der Abtastschritt $\Delta f =\frac{1}{\Delta t N} = \frac{1}{T}$.\\
-Der Abtastschritt im Frequenzbereich bestimmt die Auflösung der DFT. Zwei Frequenzen $f_1$ und $f_2$ können unterschieden werden, wenn der Betrag ihrer Differenz größer als $ \Delta f$ ist. D.h. für die Länge der Wertereihe im Zeitbereich muss $N \ge \frac{1}{\Delta t | f_1 - f_2 |}$ gelten. Eine größere Länge $N$ hat einen kleineren Abtastschritt im Frequenzbereich und eine höhere Auflösung zur Folge. \\
-Die Darstellung des Spektrums erfolgt für reelle Wertereihen im Intervall $[0,f_{Ny}]$, da das Spektrum bezüglich $f_{Ny}$ symmetrisch ist. Um die nicht dargestellten Frequenzen zu berücksichtigen, kann statt dem Amplitudenspektrum $|X_k|$ der doppelte Wert $2|X_k|$ dargestellt werden. \\
-Für das Phasenspektrum gilt: $X_k= |X_k|e^{i\varphi_k}$; wobei $\varphi_k$ das Phasenspektrum ist, für das gilt  
-$\varphi_k = \arctan (\frac{Im X_k}{Re X_k}) + 2n\pi$; $n \in G$. Das heißt es ist mehrdeutig. Deshalb wird entweder die Phase für verschiedene $n$ berechnet und dargestellt oder es wird für jedes $k$ ein $n$ gefunden, so dass der Betrag der Phasendifferenz für aufeinanderfolgende $k$ minimal ist. Man sagt, die Phase wird aufgerollt. Da eine Zeitverschiebung des Signals einen linearen Trend in der Phase erzeugt, kann der Zeitpunkt Null so verschoben werden, dass die Phase einen minimalen Trend zeigt. Z.B. kann der Schwerpunkt des Signals als Zeitpunkt Null gewählt werden, um einen linearen Trend in der Phase zu minimieren.\\
-\\
-\underline{Verwendung von Zeitfenstern bei der DFT}\\
-transientes Signal: Rechteckfenster, so dass Signal vollständig enthalten ist. \\
-Leistungssignal: Enden wichten, um Unstetigkeiten an den Enden des Beobachtungsinvervalls aufgrund der periodischer Fortsetzung des Signals bei der DFT zu vermeiden. Das Signal wird mit einem Zeitfenster (taper) multipliziert. Beispiele für häufig verwendete Zeitfenster sind:\\
-Hamming-Fenster (Richard Hamming)\\
-$0.54+0.46\cos(\frac{2\pi j}{N})$; $j=-\frac{N}{2},\dots, \frac{N}{2}-1$,\\
-Hanning-Fenster (von Hann)\\
-$\frac{1}{2}(1+\cos(\frac{2\pi j}{N}))$; $j=-\frac{N}{2},\dots, \frac{N}{2}-1$.\\
+
+\section{Faltung}
+Kontinuierlich: 
+\begin{equation}
+x_1(t) \ast x_2(t)= \int\limits_{-\infty}^{\infty} x_1(t')x_2(t-t')dt',
+\end{equation}
+und diskret
+\begin{equation}
+x_{1i} \ast x_{2i} = \sum\limits_{j=-\infty}^{\infty} x_{1j} x_{2i-j}.
+\end{equation}
+Beschreibt Wirkung eines linearen Systems. $x_1(t)$: Input, $x_2(t)$: Impulsantwort des linearen Systems, $x_1(t) \ast x_2(t)$: Output.
+
+
+\section{Korrelation (deterministisch)}
+Gibt ein Maß für Ähnlichkeit von$ x_1(t)$ und $x_2(t)$\\
+Kontinuierlich:
+\begin{equation}
+\rho_{x_1x_2}(t)= \int\limits_{-\infty}^{\infty} x_1(t')x_2(t'+t)dt',
+\end{equation}
+und diskret
+\begin{equation}
+\rho_{x_1x_2}(i) = \sum\limits_{j=-\infty}^{\infty} x_{1j} x_{2j+i}
+\end{equation}
+
+Bei der Korrelationsfunktion wird unterschieden in \textit{Kreuzkorrelationsfunktion} (KKF), Korrelation zweier verschiedener Funktionen und \textit{Autokorrelationsfunktion} (AKF), Korrelation der Funktion mit sich selbst.
+
+\section{Fouriertransformation}
+Kontinuierliche Funktion $x(t)$ wird als Reihe von harmonischen Funktionen unterschiedlicher Frequenz ausgedrückt. Kontinuierliches Spektrum (Spektraldichte) $X(\omega)$. Die Fouriertransformation in den $f$-Bereicht ist $F$, und $F^{-1}$ die Rücktransformation in den Zeitbereich:
+\begin{align}
+\textbf{F}\{x(t)\}  & = X(\omega)=\int\limits_{-\infty}^{\infty} x(t) e^{-i\omega t}dt\\
+\textbf{F}^{-1}\{X(\omega)\} = x(t) & =\frac {1}{2\pi}\int\limits_{-\infty}^{\infty} X(\omega) e^{i\omega t}d\omega
+\end{align}
+Die Diskrete Fouriertransformation (DFT): diskrete Wertereihe $\{x_j\}$, diskretes Spektrum (Spektraldichte) $\{X_k\}, ~~ j,k=0,\dots,N-1$.
+\begin{align}
+DFT\{ x_j \} = X_k & =\sum\limits_{j=0}^{N-1}x_j e^{-i2\pi jk/N} \\
+DFT^{-1}\{X_k\} = x_j & =\frac{1}{N} \sum\limits_{k=0}^{N-1}X_k e^{-2\pi jk/N}
+\end{align}
+Dabei ist $\{x_j\}$,$\{X_k\}$ periodisch, Periode: $N$\\
+
+\subsection{Darstellung des Spektrums}
+{\color{red} MUSS ÜBERARBEITET WERDEN!!!}
+
+
+Für ein diskretes Signal gilt das maximal Frequenzen bis zur Nyquistfrequenz abgetastet werden können. Die Nyquistfrequenz ist definiert als
+\begin{equation}
+f_{Ny} = \frac {1} {2 \Delta t N}
+\end{equation}
+und der Abtastschritt
+\[
+\Delta t =\frac{1}{\Delta t N} = \frac{1}{T}
+\]
+Die diskrete Fourier Transformation (DFT) berechnet das Spektrum $X_k$ für eine diskrete Signalreihe, bei der gilt $\omega_k= k \Delta \omega, k=0,\dots, N-1$ im Intervall $[0,2\omega_{Ny}]$. Für die Nyquistfrequenz gilt $\omega_{Ny} = \frac {\pi} {\Delta t N}$ und für den Abtastschritt im Frequenzbereich bzgl. der Kreisfrequenz gilt $\Delta\omega=\frac{2\pi}{\Delta t N} = \frac{2\pi}{T}$ , wobei $T$ die Länge des Beobachtungsintervalls im Zeitbereich ist. Bezüglich der Frequenz wird das Spektrum $X_k$ für die Frequenzen  $f_k, k=0,\dots, N-1$ im Intervall $[0,2f_{Ny}]$ berechnet.\\\\
+Der Abtastschritt im Frequenzbereich bestimmt die Auflösung der DFT. Zwei Frequenzen $f_1$ und $f_2$ können unterschieden werden, wenn der Betrag ihrer Differenz größer als $ \Delta f$ ist. D.h. für die Länge der Wertereihe im Zeitbereich muss  gelten
+\[
+N \ge \frac{1}{\Delta t | f_1 - f_2 |}.
+\]
+Eine längeres Signal hat einen kleineren Abtastschritt im Frequenzbereich und eine höhere Auflösung zur Folge. Dies nennt man Unschärferelation.\\\\
+Die Darstellung des Spektrums erfolgt für reelle Wertereihen im Intervall $[0,f_{Ny}]$, da das Spektrum bezüglich $f_{Ny}$ symmetrisch ist. Um die nicht dargestellten Frequenzen zu berücksichtigen, kann statt dem Amplitudenspektrum $|X_k|$ der doppelte Wert $2|X_k|$ dargestellt werden.\\\\
+Für das Phasenspektrum gilt:
+\[
+X_k= |X_k|e^{i\varphi_k},
+\]
+wobei $\varphi_k$ das Phasenspektrum ist, für das gilt:
+\[
+\varphi_k = \arctan \left(\frac{Im X_k}{Re X_k}\right) + 2n\pi
+\]
+{\small Dabei ist $n \in \mathbb{G}$}\\\\
+Das bedeutet dass das Phasenspektrum aufgrund der harmonischen Schwingungen mehrdeutig ist. Deshalb wird entweder die Phase für verschiedene $n$ berechnet und dargestellt oder es wird für jedes $k$ ein $n$ gefunden, so dass der Betrag der Phasendifferenz für aufeinanderfolgende $k$ minimal ist. Man sagt, die Phase wird aufgerollt. Da eine Zeitverschiebung des Signals einen linearen Trend in der Phase erzeugt, kann der Zeitpunkt Null so verschoben werden, dass die Phase einen minimalen Trend zeigt. Z.B. kann der Schwerpunkt des Signals als Zeitpunkt Null gewählt werden, um einen linearen Trend in der Phase zu minimieren.
+
+\subsubsection*{Verwendung von Zeitfenstern}
+Ein transientes Signal ist ein Rechteckfenster in dem dass Signal vollständig enthalten ist.\\
+Das Leistungssignal: Die Enden werden herunter gewichtet, um Unstetigkeiten an den Enden des Beobachtungsinvervalls zu dämfen. Das Signal wird mit einem \textit{Taper} multipliziert. Beispiele für häufig verwendete Zeitfenster sind:
+\begin{itemize}
+\item Hamming-Fenster (nach Richard Hamming)
+\[
+0.54+0.46\cos \left(\frac{2\pi j}{N} \right)
+\]
+{\small Wobei $j=-\frac{N}{2},\dots, \frac{N}{2}-1$}
+\item Hanning-Fenster (von Hann)
+\[
+\frac{1}{2}\left(1+\cos\left(\frac{2\pi j}{N}\right)\right)
+\]
+{\small Wobei $j=-\frac{N}{2},\dots, \frac{N}{2}-1$}
+\end{itemize}
 Es können auch nur die Enden des Zeitfensters mit einem Hanning Fenster gewichtet werden.
 Das Powerspektrum eines stochastischen, stationären Signals wird geschätzt, indem es für überlappende Segmente einzeln berechnet und dann gemittelt wird. Zuvor werden die Segmente jeweils mit einem Zeitfenster multipiziert.
-\\
-\\
-\underline{Mehrdimensionale FT}
 
-FT bezüglich Zeit $f(t) \xrightarrow {\bf F} F(\omega)$
-
-FT bezüglich Ort $f(x) \xrightarrow {\bf F} F(k)$
-
-Wellenzahlbereich: $k=\frac{2\pi}{\lambda}$. Dabei ist $k$ die Wellenzahl und $\lambda$ die Wellenlänge. 
-
+\subsection{Mehrdimensionale Fourier Transformation}
+Fourier Transformation bezüglich Zeit
+\[
+f(t) \xrightarrow {\bf F} F(\omega)
+\]
+Fourier Transformation bezüglich Ort
+\[
+f(x) \xrightarrow {\bf F} F(k)
+\]
+Wellenzahlbereich beträgt 
+\[
+k=\frac{2\pi}{\lambda}.
+\]
+{\small Dabei ist $k$ die Wellenzahl und $\lambda$ die Wellenlänge.}
 Vergleiche: $ \omega =\frac{2\pi}{T}$.
-\\
-\underline{2D-FT}\\
-\hspace*{1cm}$F(k_x,k_y)=\int\limits_{-\infty}^\infty \int\limits_{-\infty}^\infty f(x,y)e^{-i(k_xx+k_yy)} dx dy$\\
-\hspace*{1cm} $f(x,y)=\frac{1}{4\pi^2}\int\limits_{-\infty}^\infty \int\limits_{-\infty}^\infty F(k_x,k_y)e^{i(k_xx+k_yy)} dk_x dk_y$\\
-\hspace*{1cm} $F(k,\omega)=\int\limits_{-\infty}^\infty \int\limits_{-\infty}^\infty f(x,t)e^{-i(kx+\omega t)} dx dt$\\
-\hspace*{1cm} $f(x,t)=\frac{1}{4\pi^2}\int\limits_{-\infty}^\infty \int\limits_{-\infty}^\infty F(k,\omega)e^{i(kx+\omega t)} dk d\omega$\\
-\underline{3D-FT}\\
-\hspace*{1cm}$F(k_x,k_y,\omega)=\int\limits_{-\infty}^\infty \int\limits_{-\infty}^\infty \int\limits_{-\infty}^\infty f(x,y,t)e^{-i(k_xx+k_yy+\omega t)} dx dy dt$\\
-\hspace*{1cm} $f(x,y,t)=\frac{1}{8\pi^3}\int\limits_{-\infty}^\infty \int\limits_{-\infty}^\infty \int\limits_{-\infty}^\infty F(k_x,k_y,\omega))e^{i(k_xx+k_yy+\omega t)} dk_x dk_y d\omega$\\
-\\
-\\
-\underline{Aliasing}
+
+\subsection{2-Dimensionale Fourier Transformation}
+Beispiele für 2-dimensionale Fourier Transformationen
+
+\[
+F(k_x,k_y)=\iint_{-\infty}^\infty f(x,y)e^{-i(k_xx+k_yy)} dx dy
+\]
+
+\[
+f(x,y)=\frac{1}{4\pi^2} \iint_{-\infty}^\infty F(k_x,k_y)e^{i(k_xx+k_yy)} dk_x dk_y
+\]
+
+\[
+F(k,\omega)=\iint_{-\infty}^\infty f(x,t)e^{-i(kx+\omega t)} dx dt
+\]
+
+\[
+f(x,t)=\frac{1}{4\pi^2}\ \iint_{-\infty}^\infty F(k,\omega)e^{i(kx+\omega t)} dk d\omega
+\]
+
+\subsection{3-Dimensionale Fourier Transformation}
+Beispiele für 3-dimensionale Fourier Transformationen
+
+\[
+F(k_x,k_y,\omega)=\iiint_{-\infty}^\infty f(x,y,t)e^{-i(k_xx+k_yy+\omega t)} dx dy dt
+\]
+\[
+f(x,y,t)=\frac{1}{8\pi^3} \iiint_{-\infty}^\infty F(k_x,k_y,\omega))e^{i(k_xx+k_yy+\omega t)} dk_x dk_y d\omega
+\]
+
+
+\subsection{Sätze}
+
+\paragraph{Umkehrsatz}
+\begin{equation}
+\textbf{F} \{X(\omega)\}=2\pi x(-t)
+\end{equation}
+Vergleiche:
+\[
+{\bf F} \{x(t)\}=X(\omega) \mbox{ und } {\bf F}^{-1}\{X(\omega)\}=x(t)
+\]
+
+
+\paragraph{Verschiebungssatz}
+\begin{equation}
+\textbf{F} = \{x(t+b)\}=e^{ib\omega}X(\omega)
+\end{equation}
+$e^{ib\omega}$ ändert Phase nicht das Amplitudenspektrum. Linearer Trend wird zur Phase addiert.
+
+
+\paragraph{Differentiationssatz}
+\begin{equation}
+\textbf{F}\{x^\prime(t)\}=i\omega X(\omega)
+\end{equation}
+(Der Faktor $i \omega $ bewirkt eine Phasenverschiebung um $\mbox{sgn}(\omega) 90^\circ$ und hohe Frequenzen werden verstärkt.)
+
+\paragraph{Integrationssatz}
+\begin{equation}
+\textbf{F} \{\int\limits_{-\infty}^{t} x(t')dt'\}=\frac{1}{i\omega} X(\omega)
+\end{equation}
+Der Faktor $\frac{1}{i\omega}$ bewirkt eine Phasenverschiebung um $-\mbox{sgn}(\omega) 90^\circ$ und tiefe Frequenzen werden verstärkt.
+
+\paragraph{Faltungssatz} 
+\begin{equation}
+\textbf{F} \{x_1(t) \ast x_2(t)\}= X_1(\omega) X_2(\omega)
+\end{equation}
+Faltung im Zeitbereich bedeutet Multiplikation im Frequenzbereich. Umgekehrt entspricht auch eine Multiplikation im Zeitbereich bis auf einen konstanten Faktor einer Faltung der Spektren im Frequenzbereich
+
+\paragraph{Korrelationssatz}
+\begin{equation}
+\textbf{F} \{\rho_{x_1x_2}(t)\}= X_1^\ast(\omega) X_2(\omega)
+\end{equation}
+Beachten den Unterschied zum Faltungssatz. Wie beim Faltungssatz werden die Amplitudenspektren multipliziert. Die Phasenspektren werden aber subtrahiert, bei der Faltung addiert.
+
+\paragraph{Rayleigh-Theorem}
+\begin{equation}
+\int\limits_{-\infty}^{\infty} | x(t) |^2 dt = \frac{1}{2\pi} \int\limits_{-\infty}^{\infty} | X(\omega)|^2 d\omega
+\end{equation}
+Power im Zeitbereich = $\frac{1}{2\pi}$ Power im Frequenzbereich.
+
+\paragraph{Ähnlichkeitssatz}
+\begin{equation}
+{\bf F} \{x(at)\}= \frac{1}{a} X(\frac{\omega}{a})
+\end{equation}
+Stauchung einer Funktion bzgl. Zeit im Zeitbereich entspricht Dehnung des Spektrums bzgl. Frequenz im Frequenzbereich.
+
+
+\section{Aliasing}
+
 \begin{itemize}
-\item zu grobe Abtastung, Spektrum wird verfälscht
-\item Es werden mindestens zwei Ableitungen für die kürzeste Periode $\frac{1}{f_{max}}$ benötigt
-\item höchste Frequenz, die mit bestimmten Abtastschritt wiedergegeben werden kann $\frac{1}{2\Delta t} \rightarrow$ Nyquist-Theorem
-\item Nyquistfrequenz $f_{Ny}=\frac{1}{2 \Delta t}$
+\item zu grobe Abtastung, Spektrum wird verfälscht.
+\item Es werden mindestens zwei Ableitungen für die kürzeste Periode benötigt
+\[
+\frac{1}{f_{max}}
+\]
+\item Höchste Frequenz, die mit bestimmten Abtastschritt wiedergegeben werden kann
+\[
+\frac{1}{2\Delta t} \rightarrow \mbox{Nyquist-Theorem}
+\]
+\item Nyquistfrequenz
+\[
+f_{Ny}=\frac{1}{2 \Delta t}
+\]
 \end {itemize}
-Vermeidung von Aliasing
+Wie Aliasing des Signal vermieden werden kann:
 \begin{itemize}
-\item $\Delta t$ so klein wählen, dass $\frac {1}{2\Delta t}>f_{max}$
-\item Antialiasingfilter: analoger Filter vor Digitalisierung
-\item in der Praxis wird drei- bis vierfaches oversampling empfohlen, so dass $f_{Ny}\approx 4-5 f_{max}$. 
+\item $\Delta t$ so klein wählen, dass
+\[
+f_{max} < \frac {1}{2\Delta t}
+\]
+\item Antialiasingfilter: analoger Filter vor Digitalisierung der Messgröße.
+\item In der Praxis wird \textit{drei- bis vierfaches oversampling} empfohlen, so dass
+\[
+f_{Ny}\approx 4-5 f_{max}.
+\]
 \end {itemize}
