@@ -25,19 +25,19 @@ Um eine Wertereihe bearbeiten zu können, muss zunächst eine mathematische Besc
 Es muss von Fall zu Fall entschieden werden, ob ein deterministisches oder stochastisches Modell gewählt wird. Anhand des Modells der Wertereihe kann dann ein mathematischer Algorithmus für die digitale Signalbearbeitung erarbeitet werden. Eine deterministische bzw. eine stochastische Beschreibung können sowohl für das Nutz- wie das Störsignal geeignet sein. Ein 50 Hz Störsignal kann deterministisch beschrieben werden, störendes Rauschen würde man eher mit einem stochastischen Modell beschreiben. Wird mit Hilfe der Korrelation des seismischen Hintergrundrauschens (ambient noise) der Untergrund zwischen zwei seismischen Stationen untersucht, ist das Rauschen das Nutzsignal, für das ein stochastisches Modell angenommen wird. Für wiederholte Schweremessungen kann ein Modell angenommen werden, nach dem die tatsächliche Schwere eine deterministische Größe ist, die durch zufällige Messfehler überlagert wird. 
 
 \subsection{Zufallsgröße x}
-Die Wahrscheinlichkeit, dass die Zufallsgröße x den Wert s annimmt, wird durch die {\bf Verteilungsdichtefunktion} $p(s)$ bzw. durch die {\bf Verteilungsfunktion} $P(s)$ beschrieben. Die Verteilungsdichtefunktion kann eingipflig ({\bf unimodal}) oder mehrgifplig ({\bf multimodal}) zum Beispiel zweigipflig (bimodal) sein. Die Anzahl der Gipfel ist gleichbedeutend mit der Anzahl der Maxima. Außerdem kann die Verteilungsdichtefunktion symmetrisch oder unsymmetrisch um einen Wert s verteilt sein. Die Verteilungsfunktion wird definiert durch:\\ $P(s)=\int\limits_{-\infty}^s p(s')ds'$ , mit $p(-\infty)=p(\infty)=0$, $P(-\infty)=0$ und $P(\infty)=1$.\\
+Die Wahrscheinlichkeit, dass die Zufallsgröße x den Wert s annimmt, wird durch die {\bf Verteilungsdichtefunktion} $p(s)$ bzw. durch die {\bf Verteilungsfunktion} $P(s)$ beschrieben. Die Verteilungsdichtefunktion kann eingipflig ({\bf unimodal}) oder mehrgifplig ({\bf multimodal}) zum Beispiel zweigipflig (bimodal) sein. Die Anzahl der Gipfel ist gleichbedeutend mit der Anzahl der Maxima. Außerdem kann die Verteilungsdichtefunktion symmetrisch oder unsymmetrisch um einen Wert s verteilt sein. Die Verteilungsfunktion wird definiert durch:\\\begin{equation} P(s)=\int\limits_{-\infty}^s p(s')ds'\end{equation} , mit $p(-\infty)=p(\infty)=0$, $P(-\infty)=0$ und $P(\infty)=1$.\\
 \underline {Bsp:} Gleichverteilung\\
-$p(s)=\begin{cases}
+\begin{equation}p(s)=\begin{cases}
   \frac{1}{2a},\text{für    }     m-a\leq s\leq m+a\\
  0, sonst 
-\end{cases}$ \\für eine Verteilung der Breite 2a um den Mittelwert $m$. Die Verteilungsfunktion lautet dann \\ 
+\end{cases}\end{equation} \\für eine Verteilung der Breite 2a um den Mittelwert $m$. Die Verteilungsfunktion lautet dann \\ 
 $P(s)=\begin{cases}
 0,\text{für    } s<m-a\\
 \frac{1}{2a},\text{für    }     m-a\leq s\leq m+a\\
 1,\text{für    } s>m-a
 \end{cases}$.
 \\ \underline {Bsp:} Gaußsche Normalverteilung mit dem Mittelwert $m$ und der Standardabweichung $\sigma$. Die Zufallsgröße $x$ nimmt mit ca. 68\%-iger Wahrscheinlichkeit Werte zwischen $m-\sigma$ und $m+\sigma$ und mit ca. 95\%-iger Wahrscheinlichkeit Werte zwischen $m-2\sigma$ und $m+2\sigma$ an. Die Verteilungsdichtefunktion lautet:\\
-$p(s)=\frac{1}{\sigma \sqrt{2\pi}}e^{-\frac{(s-m)^2}{2\sigma^2}}$ \\
+\begin{equation}p(s)=\frac{1}{\sigma \sqrt{2\pi}}e^{-\frac{(s-m)^2}{2\sigma^2}}\end{equation} \\
 und die dazugehörige Verteilungsfunktion\\  
 $P(s)=\frac{1}{\sigma \sqrt{2\pi}}\int\limits_{-\infty}^s e^{{-\frac{(s'-m)^2}{2\sigma^2}}}ds'$.\\
 Mit der Fehlerfunktion\\
@@ -49,7 +49,7 @@ Der Wertebereich der Fehlerfunktion ist $[-1,1]$ und der Wertebereich der Vertei
 
 \subsection{Erwartungswert, Momente}
 Eigenschaften von Zufallsgrößen können sehr einfach mit Hilfe des Erwartungswertes und statistischer Momente beschrieben werden.  $E[x]$, der {\bf Erwarungswert} der Zufallsgröße $x$, ist der Schwerpunkt der Wahrscheinlichkeitsdichtefunktion:\\
- $E[x] = \int\limits_{-\infty}^{\infty}sp(s)ds$.\\
+ \begin{equation} E[x] = \int\limits_{-\infty}^{\infty}sp(s)ds\end{equation}\\
 Das erste Moment der Verteilungsdichtefunktion entspricht dem Erwartungswert: \\
 $E[x]=m=m_1$.\\
 Der Erwartungswert wird mit Hilfe der Wahrscheinlichkeitsdichtefunktion definiert. Die ist aber im Fall realer Wertereihen meist nicht bekannt. Deshalb muss der Erwarungswert anhand von Messungen - auch Realisierungen oder Stichproben $x_i$,   $i=1,\dots, N,$  geschätzt werden. Der Mittelwert der Messungen ist eine Schätzung für den Erwartungswert:\\
