@@ -83,7 +83,7 @@ F\{R_{xx}(t)\} = |X(\omega)|^2 \Rightarrow \textrm{Powerspektrum}.
 
 \section{Beispiele für Korrelationen}
 
-\subsection*{AKF eines Boxcars}
+\subsubsection*{AKF eines Boxcars}
 Die Autokorrelation einer Boxcarfunktion.
 \begin{figure}[h!]
 \centering
@@ -99,14 +99,14 @@ R_{xx}(t) & = \int_{-\infty}^\infty x(t') x(t'+t) dt' \\
 \end{align*}
 
 
-\subsection*{AKF einer Deltafunktion}
+\subsubsection*{AKF einer Deltafunktion}
 Die Autokorrelationsfunktion einer Deltafunktion, $x(t) = \delta(t)$
 \begin{align*}
 R_{xx}(t) & = \int_{-\infty}^\infty \delta(t') \delta(t'+t) dt'\\
 & = \sigma(t)
 \end{align*}
 
-\subsection*{Überlagerte Deltafunktionen}
+\subsubsection*{Überlagerte Deltafunktionen}
 Überlagerung zweier Deltafunktionen mit Amplitude $\delta(t_1) = a$ und $\delta(t_0) = b$ führt zu
 \[
 R_{xx}(t) = (a^2 + b^2)\delta(t) + ab(\delta(t-t_0) + \delta(t+t_0)).
@@ -118,14 +118,14 @@ R_{xx}(t) = (a^2 + b^2)\delta(t) + ab(\delta(t-t_0) + \delta(t+t_0)).
 \caption{Schematisches Beispiel zweier Deltafunktionen (a) und Autokorrelation derselbigen Deltafunktpeaks (b).}
 \end{figure}
 
-\subsection*{AKF bei Nullzahliger Verschiebung}
+\subsubsection*{AKF bei Nullzahliger Verschiebung}
 Die AKF einer Funktion bei $t=0$ folgt:
 \[
 R_{xx}(0) = \int_{-\infty}^\infty \delta(t')\,\delta(t') dt' = \int_{-\infty}^\infty \delta(t')^2 dt'.
 \]
 
 
-\section*{AKF einer harmonischen Schwingung}
+\subsubsection*{AKF einer harmonischen Schwingung}
 Betrachten wir die Schwingung
 \[
 x(t) = \sin(\omega_0 t)
@@ -140,7 +140,7 @@ R_xx(t) = \frac{1}{T} \int_{-\infty}^\infty x(t') x(t'+t) dt'
 \caption{Schematisches Beispiel einer harmonischen Schwingung (a) und Autokorrelation (b).}
 \end{figure}
 
-\section*{AKF Gaußsche Glockenkurve}
+\subsubsection*{AKF Gaußsche Glockenkurve}
 Autokorrelation einer Gaußschen Glockenkurve der Form
 \[
 x(t) = a\,e^{-t^2/2T^2},
@@ -150,7 +150,7 @@ führt zu
 R_{xx}(t) = a^2 T \sqrt{\pi} e^{-t^2/4T^2}.
 \]
 
-\section*{AKF eines Sweeps}
+\subsubsection*{AKF eines Sweeps}
 Autokorrelation eines Sweeps der Form
 \[
 \mbox{sweep}(t)=
@@ -159,7 +159,6 @@ Autokorrelation eines Sweeps der Form
 0& sonst
 \end{cases}
 \]
-
 Abbildung \ref{fig:korr_sweep} zeigt einen schematischen Sweep und dessen Autokorrelation
 
 \begin{figure}[h!]
@@ -169,7 +168,7 @@ Abbildung \ref{fig:korr_sweep} zeigt einen schematischen Sweep und dessen Autoko
 \label{fig:korr_sweep}
 \end{figure}
 
-\section*{AKF von Weißem Rauschen}
+\subsubsection*{AKF von Weißem Rauschen}
 Die Autokorrelation von weißem Rauschen,
 \[
 \{u_i\} = \mbox{iid}.
@@ -185,15 +184,14 @@ R_{uu}(i) = E[u_j + u_{j+i} =
 \]
 {\small $\sigma$ ist die Varianz der Amplitude des weißen Rauschens}
 
-\section*{AKF von farbigem Rauschen}
+\subsubsection*{AKF von farbigem Rauschen}
 Farbiges Rauschen ist gleichverteiltes Rauschen in einem begrenzten Frequenzband.
 \[
 F\{R_{xx}(i)\} = \mbox{const.} = |N(\omega)|^2
 \]
 
-\section*{AKF einer Seismischen Spur}
-Formeln müssen überarbeitet werden!\\\\
-
+\subsubsection*{AKF einer Seismischen Spur}
+{\color{red}Formeln müssen überarbeitet werden!}\\\\
 Die Autokorrelation einer Seismischen Spur $s$ kann betrachtet werden als
 \[
 s_i = w_i * x_i.
@@ -215,19 +213,18 @@ Nur & j-k = j+i-l\\
 Oder & l = i+k
 \end{cases}
 \end{align*}
-
 Daraus folt, dass die Autokorrelation der Seismischen Spur etwa der Autokorrelation des Wavelets entspricht:
 \[
 R_{ss}(i) \sim R_{ww}(i) = \sigma x^2 \, \sum_k w_k \, w_{k+1} < \sigma x^2 R_{ww}(i)
 \]
 So kann der Frequenzgehalt des initialen Wavelets aus der Seismischen Spur oder Seismogramm abgelesen werden.
 
-\section*{AKF Seismische Spur mit Ghost}
+\subsubsection*{AKF Seismische Spur mit Ghost}
 Autokorrelation einer Seismischen Spur mit Ghost.
 \[
 y_i = s_i * g_i.
 \]
-{\small Wobei $g_i$ der Ghostoperator ist}\\
+{\small Wobei $g_i$ der Ghostoperator ist}\\\\
 Im Frequenzbereich:
 \[
 Y(\omega) = S(\omega) \cdot G(\omega)

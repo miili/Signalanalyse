@@ -1,8 +1,6 @@
 
 \chapter{Einleitung}
 
-
-
 Im allgemeinen Sprachgebrauch wird unter {\bf Signal} ein Zeichen verstanden, mit dem eine Nachricht übertragen wird oder ein Verhalten, das eine Information übermittelt. Durch die Geophysik - aber auch durch andere Natur- oder Ingenieurwissenschaften - werden physikalische Messgrößen genutzt, um den Untersuchungsgegenstand zu analysieren. In einer physikalische Messgröße ist ein Signal vorhanden, wenn sie das Auftreten eines interessierenden Phänomens anzeigt.\\\\
 Betrachtet man z.B. flächenhafte Messungen der Schwerebeschleunigung, so kann ein Signal ein Schwereminimum oder -maximum sein. Ein Signal kann aber auch ein Trend in den Messdaten sein, der eine räumliche Änderung der Tiefe des Grundgebirges anzeigt. Mit einem Seismometer wird die  Bewegung eines Massenpunktes, meistens in Form eine Spannung, aufgezeichnet. Trifft eine seismische Welle, die durch ein Erdbeben oder eine Sprengung angeregt werden kann, am Ort des Seismometers ein, wird ein Spannung induziert. In der Messgröße tritt ein Signal auf, das die seismische Welle beschreibt. In der Reflexionsseismik werden die Signale, d.h. die Wellenformen, die eine reflektierte Welle anzeigen, wavelet (\textsl{kleine Welle}) genannt.\\
 
@@ -19,39 +17,24 @@ Mit dem Einsatz von Computern hat die digitale Signalverarbeitung eine enorme Ve
 Vielfältige Beispiele der digitalen Signalverarbeitung finden sich in der Astrophysik, der Meteorologie, Ozeanographie, aber auch der Medizin oder Ökonomie: Elektrische Signale des Herzen (Elektrokardiogramm) oder des Gehirns (Elektorencephalogramm) oder auch Börsenkurse werden digital bearbeitet und analysiert.\\
 Die Enstehung der modernen mathematischen Grundlagen der Signalverarbeitung in der 1. Hälfte des 20. Jahrhunderts ist eng mit dem Wirken von Norbert Wiener und Andrej Kolmogorov verbunden. In der Geophysik haben z.B. Enders Robinson und Sven Treitel Wesentliches auf dem Gebiet der digitalen Signalverarbeitung geleistet. Im folgenden werden einführende Bücher zur digitalen Signalverarbeitung empfohlen.
 
-\vspace{0.3cm}
-
-\subsection*{Literatur Empfehlung}
-
-Andel, J., 1984. Statistische Analyse von Zeitreihen. Akademie-Verlag Berlin.
-
-Brockwell, P.J., Davis, R.A., 1987. Time Series: Theory and Methods. Springer.
-
-Box, G.,  Jenkins, G., 1970. Time series analysis: Forecasting and control. Holden-Day, San Francisco.
-
-Buttkus, B., 1991. Spektralanalyse und Filtertheorie. Springer.
-
-Karl, J.H., 1989. An Introduction to Digital Signal Processing. Academic Press.
-
-Marple, S.L., 1987. Digital Spectral Analysis with Applications. Prentice-Hall.
-
-Marsal, D., 1979. Statistische Methoden für Erdwissenschaftler. Schweizerbart’sche Verlagsbuchhandlung.
-
-Press, W.H. et al., 1986. Numerical Recipes. Cambridge University Press.
-
-Robinson, E.A., Treitel, S., 1980. Geophysical Signal Analysis. Prentice-Hall.
-
+\subsection*{Literatur Empfehlungen}
+Andel, J., 1984. Statistische Analyse von Zeitreihen. Akademie-Verlag Berlin.\\\\
+Brockwell, P.J., Davis, R.A., 1987. Time Series: Theory and Methods. Springer.\\\\
+Box, G.,  Jenkins, G., 1970. Time series analysis: Forecasting and control. Holden-Day, San Francisco.\\\\
+Buttkus, B., 1991. Spektralanalyse und Filtertheorie. Springer.\\\\
+Karl, J.H., 1989. An Introduction to Digital Signal Processing. Academic Press.\\\\
+Marple, S.L., 1987. Digital Spectral Analysis with Applications. Prentice-Hall.\\\\
+Marsal, D., 1979. Statistische Methoden für Erdwissenschaftler. Schweizerbart’sche Verlagsbuchhandlung.\\\\
+Press, W.H. et al., 1986. Numerical Recipes. Cambridge University Press.\\\\
+Robinson, E.A., Treitel, S., 1980. Geophysical Signal Analysis. Prentice-Hall.\\\\
 Silvia, M.T., Robinson, E.A., 1979. Deconvolution of Geophysical Time Series in the Exploration for Oil and Natural Gas. Elsevier.
-  
-
-\vspace{0.3cm}
-
-\section{Einordnung der Geophysikalischen Signalanalyse}
+ 
+\section{Geophysikalischen Signalanalyse}
 Am Anfang einer geophysikalischen Untersuchung steht die Aufgabenstellung, aufgrund derer eine geeignete Messung durchgeführt wird. Diese liefert eine kontinuierliche Meßgröße, die nach einer Diskretisierung - meistens mit einem Analog-Digital-Wandler - in Form einer diskreten Wertereihe vorliegt. Die nächste Aufgabe ist das Datenmanagement, das dem Nutzer die Daten in geeigneter Form zur Verfügung stellt. Dann schließt sich die digitale Signalverarbeitung an, der eine Modellierung oder Inversion der Daten folgen kann. Schließlich werden die Ergebnisse interpretiert und entsprechend dokumentiert.\\
 
 Liegen nur wenige Messdaten vor, ist das eine wichtige, aber relative einfache Aufgabe. Allerdings werden in der Geophysik oft erhebliche Datenmengen verarbeitet (bis mehrere TByte). Dann stellt ist es eine Herausforderung, die Daten möglichst lückenlos und fehlerfrei von dem Messort zu einem Datenarchiv zu übertragen und dort sicher zu speichern. Im Fall permanenter seismologischer Stationen werden die Daten heute in realtime (Echtzeit) an Datenzentren wie GEOFON, ORFEUS oder IRIS übertragen, die sie dann auch dem Nutzer durch geeignete Portale zur Verfügung stellen. Für große Datenmengen wird dem Nutzer neuerdings auch Software zur automatischen Abfrage der Daten bereitgestellt. Wichtig ist, dass auch sogenannte Metadaten verwaltet werden, ohne die die Messwerte nicht interpretiert werden können. Diese enthalten den Ort der Messungen, den Namen des Messgerätes und dessen Eigenschaften, den Zeitpunkt der Messungen und weitere Informationen wie den Namen von Netzwerken oder Messkampagnen oder die Messbedingungen. Es muss deutlich werden: Wer hat wann, wo, mit welchen Gerät und welchen Einstellungen, unter welchen Bedingungen, was gemessen? Auch der Eigentümer der Daten und die Nutzungsbedingungen können in den Metadaten enthalten sein.\\
 
-Die {\bf digitale Signalverarbeitung} umfasst 1. die Darstellung der Daten, 2. die digitale Bearbeitung der Daten und 3. die Schätzung von Signalparametern. Diese Schritte können wiederholt, in beliebiger Reihenfolge und iterativ erfolgen, bis das Signal in der gewünschten Form dargestellt wird. Oft steht interaktive Software für die digitale Signalverarbeitung zur Verfügung. Im Fall großer Datenmengen oder Bearbeitungen in realtime werden die Bearbeitungsschritte zumindest teilweise automatisiert. Oft muss eine optimale Strategie für die Bearbeitung der Daten in vielen Versuchen entwickelt werden. Die automatische Bearbeitung der Daten (mitunter in realtime) ist eine aktuelle Herausforderung bei der Bearbeitung geophysikalischer Daten.
+Die \textbf{digitale Signalverarbeitung} umfasst 1. die Darstellung der Daten, 2. die digitale Bearbeitung der Daten und 3. die Schätzung von Signalparametern. Diese Schritte können wiederholt, in beliebiger Reihenfolge und iterativ erfolgen, bis das Signal in der gewünschten Form dargestellt wird. Oft steht interaktive Software für die digitale Signalverarbeitung zur Verfügung. Im Fall großer Datenmengen oder Bearbeitungen in realtime werden die Bearbeitungsschritte zumindest teilweise automatisiert. Oft muss eine optimale Strategie für die Bearbeitung der Daten in vielen Versuchen entwickelt werden. Die automatische Bearbeitung der Daten (mitunter in realtime) ist eine aktuelle Herausforderung bei der Bearbeitung geophysikalischer Daten.
 
 \newpage
 
