@@ -148,20 +148,20 @@ Vergleiche:
 \begin{equation}
 \textbf{F} = \{x(t+b)\}=e^{ib\omega}X(\omega)
 \end{equation}
-$e^{ib\omega}$ ändert Phase nicht das Amplitudenspektrum. Linearer Trend wird zur Phase addiert.
+$e^{ib\omega}$ ändert Phase nicht das Amplitudenspektrum, ein Linearer Trend wird zur Phase addiert.
 
 
 \paragraph{Differentiationssatz}
 \begin{equation}
 \textbf{F}\{x^\prime(t)\}=i\omega X(\omega)
 \end{equation}
-(Der Faktor $i \omega $ bewirkt eine Phasenverschiebung um $\mbox{sgn}(\omega) 90^\circ$ und hohe Frequenzen werden verstärkt.)
+Der Faktor $i \omega$ bewirkt eine Phasenverschiebung um $\mbox{sgn}(\omega) 90^\circ$ und hohe Frequenzen werden verstärkt.
 
 \paragraph{Integrationssatz}
 \begin{equation}
 \textbf{F} \{\int\limits_{-\infty}^{t} x(t')dt'\}=\frac{1}{i\omega} X(\omega)
 \end{equation}
-Der Faktor $\frac{1}{i\omega}$ bewirkt eine Phasenverschiebung um $-\mbox{sgn}(\omega) 90^\circ$ und tiefe Frequenzen werden verstärkt.
+Der Faktor $1/i\omega$ bewirkt eine Phasenverschiebung um $-\mbox{sgn}(\omega) 90^\circ$ und tiefe Frequenzen werden verstärkt.
 
 \paragraph{Faltungssatz} 
 \begin{equation}
@@ -189,9 +189,8 @@ Stauchung einer Funktion bzgl. Zeit im Zeitbereich entspricht Dehnung des Spektr
 
 
 \section{Aliasing}
-
+Aliasing tritt auf, wenn der Abtastschritt, $\Delta t$ zu klein gewählt ist, dadurch wird das Spektrum verfälscht.
 \begin{itemize}
-\item zu grobe Abtastung, Spektrum wird verfälscht.
 \item Es werden mindestens zwei Ableitungen für die kürzeste Periode benötigt
 \[
 \frac{1}{f_{max}}
