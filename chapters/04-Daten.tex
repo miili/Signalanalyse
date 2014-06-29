@@ -38,16 +38,20 @@ Diese Bedingung liefert für ein lineares Modell ein lineares Gleichungssystem z
 \[
 \hat{y_i}=x_i-m_i(\hat a_k)
 \]
-Zu beachten ist, dass das Zeitfenster und die Ordnung $q$ geeignet gewählt werden müssen. Die Ordung $q$ sollte möglichst klein (z.B. 1 für einen linearen Trend) gewählt und wenn nötig schrittweise erhöht werden. Die Ordnung muss so klein sein, dass das $m(\hat a_k)$ nicht Anteile von ${y_i}$ enthält. Das Zeitfenster sollte eher lang als zu kurz gewählt werden. Möglicherweise kann der Trend auch in einem Zeitfenster vor dem Einsetzen eines Signals bestimmt werden.\\\\ 
-Der Trend kann auch mittels Filterung oder eines \textsl{Moving Average} (gleitendes Mittel, MA) bestimmt werden. Wird ein akausales, zweiseitiges Fenster verwendet:
+Zu beachten ist, dass das Zeitfenster und die Ordnung $q$ geeignet gewählt werden müssen. Die Ordung $q$ sollte möglichst klein (z.B. 1.-Ordnung für einen linearen Trend) gewählt und wenn nötig schrittweise erhöht werden. Die Ordnung muss so klein sein, dass das $m(\hat a_k)$ nicht Anteile von ${y_i}$ enthält. Das Zeitfenster sollte eher lang als zu kurz gewählt werden. Möglicherweise kann der Trend auch in einem Zeitfenster vor dem Einsetzen eines Signals bestimmt werden.\\\\
+
+\subsection{Moving Average}
+Der Trend kann auch mittels Filterung oder eines \textsl{Moving Average} (gleitendes Mittel, MA) bestimmt werden.\\\\
+Ein \textit{akausales}, zweiseitiges hat eine Länge von $2q + 1$. Dabei wird auch auf zukünftige Werte zugegriffen, die Bearbeitung kann also nur \textbf{offline} erfolgen.
 \begin{equation}
 \hat{m_i}=(2q+1)^{-1}\sum\limits_{j=-q}^q x_{i-j}
 \end{equation}
-Die Länge des gleitenden Fensters $2q + 1$. Dabei wird auch auf zukünftige Werte zugegriffen. Die Bearbeitung kann also nur \textsl{offline} erfolgen. Für ein einseitiges, kausales gleitendes Fenster ergibt sich die Schätzung des Trends nach
+Für ein \textit{kausales}, einseitiges gleitendes Fenster wird nur auf aktuelle und vergangene Werte zugegriffen. Diese Variante ist geeignet für die Bestimmung des Trends in Echtzeit (\textbf{online}). Allerdings fürht dies zu einer Phasenverschiebung der Signale.
 \begin{equation}
 \hat{m_i}=(q+1)^{-1}\sum\limits_{j=0}^q x_{i-j}
 \end{equation}
-Dabei wird nur auf aktuelle und vergangene Werte zugegriffen. Diese Variante ist geeignet für die Bestimmung des Trends in real-time. Allerdings ist der Trend dann phasenverschoben. Um die Berechnung zu beschleunigen, kann das gleitende Mittel \textit{rekursiv} berechnet werden
+
+Das gleitende Mittel kann auch rekursiv bestimmt werden
 \begin{equation}
 \hat m_i=(q+1)^{-1} x_i +  \hat m_{i-1}-(q+1)^{-1} x_{i-1-q}
 \end{equation}
@@ -127,3 +131,19 @@ a_j=(c_j^2+c_{j+a}^2)^{0.5}, \varphi_j=\arctan(\frac{c_{j+a}}{c_j})
 
 \paragraph{Beispiel} $s_i=a \cos(\omega t + \varphi)$; wobei zusätzlich zu $a$ und $\varphi$ auch die Frequenz $\omega$ unbekannt ist. Durch die unbekannte Frequenz wird das Problem nicht-linear. Es müssen Methoden der nicht-lineare Optimierung genutzt werden, um die Parameter $\omega, a$ und $\varphi$ zu bestimmen.
 \end{enumerate}
+
+\section{Resampling einer Signalreihe}
+Will man den Abtastschritt (\textsl{Samplingrate}) einer schon aufgezeichneten Zeitereihe ändern kann die Interpolation des Signals im Frequenz oder Zeitbereich durchgeführt werden.
+
+\subsection{Interpolation im Zeitbereich}
+Im Zeitbereich kann der Abtastschritt einer diskreten Signalreihe durch harmonisch überlagernde Sinc Funktionen erhöht werden.
+\begin{equation}
+x(t) = \sum_{j=0}^{N-1} x(j \Delta t) \, \mbox{sinc} \left(\omega_{Ny}(t-t_j)}\right)
+\end{equation}
+Die Superposition der Sinc Funktionen ist jeweils um $t_j$ verschoben und je mit der gemessenen Amplitude $x(j\Delta t)$ gewichtet.
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=.9\tw]{fig/03-Resampling/interpolation_sinc.png}
+\caption{Interpolation im Zeitbereich durch gewichtete und überlagernde Sinc Funktionen.}
+\end{figure}
