@@ -136,9 +136,9 @@ a_j=(c_j^2+c_{j+a}^2)^{0.5}, \varphi_j=\arctan(\frac{c_{j+a}}{c_j})
 Will man den Abtastschritt (\textsl{Samplingrate}) einer schon aufgezeichneten Zeitereihe ändern kann die Interpolation des Signals im Frequenz oder Zeitbereich durchgeführt werden.
 
 \subsection{Interpolation im Zeitbereich}
-Im Zeitbereich kann der Abtastschritt einer diskreten Signalreihe durch harmonisch überlagernde Sinc Funktionen erhöht werden.
+Im Zeitbereich kann der Abtastschritt einer diskreten Signalreihe durch harmonisch überlagernde $Sinc$ Funktionen erhöht werden.
 \begin{equation}
-x(t) = \sum_{j=0}^{N-1} x(j \Delta t) \, \mbox{sinc} \left(\omega_{Ny}(t-t_j)}\right)
+x(t) = \sum_{j=0}^{N-1} x(j \Delta t) \, \mbox{sinc} \left(\omega_{Ny}(t-{t_j}\right)
 \end{equation}
 Die Superposition der Sinc Funktionen ist jeweils um $t_j$ verschoben und je mit der gemessenen Amplitude $x(j\Delta t)$ gewichtet.
 
