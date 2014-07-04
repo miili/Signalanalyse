@@ -27,10 +27,10 @@ y(t) = f(t) * x(t) & = \int_{-\infty}^\infty f(t')\, x(t-t') dt'\\
 \end{equation}
 Wobei $y(t)$ der Output des Systems $f(t)$ mit dem Input $x(t)$ ist. Weiter ist $t' \geq 0$, d.h. es wird nur auf aktielle und vergangene Werte des Inputs zugegriffen.
 
-\section{Eigenschaften eines Kausalen Systems}
-Welche Eigenschaften hat das Spektrum eines kausalen Systems?
+%\section{Eigenschaften eines Kausalen Systems}
+%Welche Eigenschaften hat das Spektrum eines kausalen Systems?
 
-\subsection{Hilberttransformation}
+\section{Hilberttransformation}
 Die Hilberttransformation ist eine Phasenverschiebung des Signals um 90$^\circ$. Die passiert zum Beispiel wenn eine Welle durch eine Kaustik, ein Brennpunkt mehrer Wellenpfade, läuft, oder bei der Reflektion an Schichtgrenzen mit Negativer Impendanz.\\
 Definition der Hilberttransformation.
 \begin{equation}
@@ -55,13 +55,13 @@ H\{\cos (\omega_0t)\} = & \sin (\omega_0 t)
 \end{split}
 \]
 
-\subsubsection*{Hilberttransformation durch Faltung}
+\subsection*{Hilberttransformation durch Faltung}
 Die Hilberttransformation kann durch Faltung dargestellt werden:
 \[
 H\{x(t)\} = -\frac{1}{\pi t} * x(t)
 \]
 
-\subsubsection*{Hilberttransformation im Frequenzbereich}
+\subsection*{Hilberttransformation im Frequenzbereich}
 Die Hiblerttransformation im Frequenzbereich,
 \[
 F\{H\{x(t)\}\} = i\,\mbox{sign}\,\omega\,X(\omega)
@@ -72,7 +72,7 @@ Dabei ist $i\,\mbox{sign}\,\omega =
 i & \omega \geq 0
 \end{cases}$
 
-\subsubsection*{Berechnung der Hilberttransformation}
+\subsection*{Berechnung der Hilberttransformation}
 Die praktische Berechnung der Hilberttransformation über den analytische Zerlegung des Signals in den Frequenzbereich.
 \[
 \begin{split}
@@ -84,4 +84,88 @@ So ist
 \[
 F^{-1}\{i\,\mbox{sign}\,\omega\,X(\omega)\} = x_H(t)
 \]
-die Hilberttransformation des Signals $x(t)$ 
+die Hilberttransformation des Signals $x(t)$
+
+\section{Analytische und Reelle Signale}
+Das Signal ist definiert als
+\[
+y(t) = x(t) - i\,H\{x(t)\}.
+\]
+Durch Fourier Transformation erhalten wir
+\[
+\begin{split}
+Y(\omega) & = X(\omega) - i \, \mbox{sign}\,\omega \, X(\omega)\\
+& = X(\omega) + \mbox{sign}\,\omega \, X(\omega)\\
+& =
+\begin{cases}
+2 X(\omega) & \omega \geq 0\\
+0 & \omega < 0
+\end{cases}
+\end{split}
+\]
+Das bedeutet, dass das Spektrum eines analytischen Signals kausal ist - Sowie das Spektrum eines kausalen Signals analytisch ist!
+
+\subsection{Berechnung eines analytischen Signals}
+Das analytische Signal kann im Frequenzbereich berechnet werden.
+\[
+\begin{split}
+F\{x(t)\} = & X(\omega)\\
+\rightarrow Y(\omega) =
+\begin{cases}
+2 X(\omega) & \omega \geq 0\\
+0 & \omega < 0
+\end{cases}
+\end{split}
+\]
+
+\subsubsection*{Berechnung der Envelope}
+Die Envelope des Signals ist die \textit{Einhüllende} der Signalreihe. Die Envelope ist definiert als
+\begin{equation}
+E(t) = |y(t)|,
+\end{equation} 
+der Betrag des \textit{analytischen} Signals.
+
+\subsection{Beispiele}
+Sei das Signal definiert als:
+\[
+\begin{split}
+x(t) & = a\, \cos (\omega_0 t)\\
+y(t) & = a\, \cos(\omega_0 t) - i\, a\, \sin (\omega_0 t)
+\end{split}.
+\]
+Dabei ist $x(t)$ das reelle und $y(t)$ das analytische Signal.
+
+\paragraph{Die Envelope} des Signals ist
+\[
+E(t) = |y(t)| = a.
+\]
+
+\paragraph{Die Phase} des Signals ist
+\[
+\phi(t) = \omega_0 t.
+\]
+
+\paragraph{Die Momentane Frequenz} des Signals bei $t$ ist
+\[
+\omega(t) = \frac{d \phi(t)}{d t}.
+\]
+Was in diesem analytischen System $\omega(t) = \omega_0$ ist.\\\\
+Die Änderung der Phase kann die Ankunft eines Signals durch Spikes in $\frac{d \phi(t)}{d t}$ anzeigen.
+
+\paragraph{Die Momentane Phase} des Signals bei $t$ ist
+\[
+\phi(t) = \arctan\left( \frac{Im\{y(t)\}}{Re\{y(t)\}} \right)
+\]
+\subsection{Konstruktion eines kausalen Signals}
+Konstruktion eines kausalen, nullphasigen Signals für ein gegebenes Amplitudenspektrum.
+\[
+\begin{split}
+F(\omega) & = |F(\omega)|\, e^{-\phi(\omega)}\\
+G(\omega) & = \ln(F(\omega)) = \ln(|F(\omega)| + i\,\phi(\omega)
+\end{split}
+\]
+Durch $\ln$ haben wir die Form des analytischen Signals.\\\\
+Die Phase kann aus dem Amplitudenspektrum berechnet werden.
+\[
+\phi(\omega) = -H\{\ln(|F(\omega)|\}
+\]

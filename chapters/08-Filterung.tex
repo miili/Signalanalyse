@@ -1,13 +1,8 @@
+\chapter{Filterung von Signalen}
+Die Frequenz Filterung von Signalreihen kann bestimmte Eigenschaften von Signalen hervorheben als auch Störende Signale (\textit{Noise}) entfernen.\\
+Beim picken von Ersteinsätzen sollte die kausale Filterung angewendet werden.
 
-\chapter{Filterung}
-Im folgenden werden verschiedene Beispiele der Signalfilterung gezeigt.
-
-
-\subsubsection*{Beispiel} Bei den Ersteinsätzen sollte die kausale Filterung angewendet werden.
-
-\section{Beispiele}
-
-\subsection*{Zweiseitige Filterung} 
+\section{Zweiseitige Filterung} 
 In Matlab wird es mit dem Befehl filtfilt durchgeführt.\\
 Folgende Schritte stecken hinter dem Befehl filtfilt.
 \begin{enumerate}
@@ -42,7 +37,7 @@ z(\omega)=   F^*(\omega) F(\omega)X(\omega) = \vert F(\omega) \vert^2 X(\omega)
 Dabei ist $\vert F(\omega) \vert^2$  die nullphasige Filterung. Die Flanken werden schärfer, das ermöglicht die Anwendung von filtfilt in Matlab.
 \end{enumerate}
 
-\subsection*{f-k-Filterung}
+\section{f-k-Filterung}
 Mit Hilfe der 2D-Fouriertransformation: $u(x,t)\longrightarrow u(k,\omega)$\\
 Dann definiert man die minimale und maximale Durchlassgeschwindigkeit. Man filtert mit den Grenzen: \\
 \begin{equation*}
@@ -50,7 +45,7 @@ Dann definiert man die minimale und maximale Durchlassgeschwindigkeit. Man filte
 \end{equation*}
 Dieser Filter wird angewendet, um z.B. die Oberflächenwellen zu unterdrücken und um die Reflexionen der Raumwellen besser zu sehen.
 
-\subsection*{Einfacher Tiefpassfilter}
+\section{Tiefpassfilter}
 Abbildung \ref{fig:filt_tiefpass} zeigt den Verlauf der Ausgangsspannung $U_a$ eines Tiefpasses in Abhängigkeit der Frequenz. Signale mit Frequenzen unterhalb der Grenzfrequenz $f_g$ gelten als durchgelassene Signale. Signale mit Frequenzen oberhalb der Grenzfrequenz $f_g$ gelten als gesperrte Signale.\\
 \begin{figure}[h!]
 \centering
@@ -62,7 +57,7 @@ Der Durchlassbereich ist der Bereich in dem gilt : $\vert F(\omega) \vert \appro
 Im Sperrbereich gilt: $\vert F(\omega) \vert \approx 0 $. Wo die Amplitude auf: 
 $20log(0,7079)dB \approx 3dB$,  abklingt, dort ist die Eckfrequenz.
 
-\subsection{Einfacher Hochpassfilter}
+\section{Hochpassfilter}
 Beim Hochpassfilter werden die Frequenzen bis zu einer bestimmten Frequenz $\omega_{h}$  gesperrt. Frequenzen ab dieser Frequenz $\omega_{h}$ werden durchgelassen.
 \begin{figure}[h!]
 \centering
@@ -70,7 +65,7 @@ Beim Hochpassfilter werden die Frequenzen bis zu einer bestimmten Frequenz $\ome
 \caption{Darstellung eines Hochpassfilters im Frequenzbereich.}
 \end{figure}
 
-\subsection*{Bandpassfilter}
+\section{Bandpassfilter}
 Der Durchlassbereich liegt zwischen den Frequenzen $\omega_{1}$ und $\omega_{2}$. \\
 $\vert F(\omega) \vert \approx 1 $ für $\omega_{1} \ll\omega \ll\omega_{2}$. Abbildung \ref{fig:filt_bandpass} zeigt den Bandpassfilter für die Frequenz um 440 Hz. 
 \begin{figure}[h!]
@@ -80,7 +75,7 @@ $\vert F(\omega) \vert \approx 1 $ für $\omega_{1} \ll\omega \ll\omega_{2}$. Ab
 \label{fig:filt_bandpass}
 \end{figure}
 
-\subsection*{Akkusaler Tiefpassfilter}
+\section{Akkusaler Tiefpassfilter}
 Beim akkusalen Tiefpassfilter handelt es sich um ein Boxcar. 
 \begin{figure}[h!]
 \centering
