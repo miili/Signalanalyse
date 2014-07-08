@@ -220,7 +220,7 @@ R_{ss}(i) \sim R_{ww}(i) = \sigma x^2 \, \sum_k w_k \, w_{k+1} < \sigma x^2 R_{w
 So kann der Frequenzgehalt des initialen Wavelets aus der Seismischen Spur oder Seismogramm abgelesen werden.
 
 \subsubsection*{AKF Seismische Spur mit Ghost}
-Autokorrelation einer Seismischen Spur mit Ghost.
+Autokorrelation einer Seismischen Spur mit dem Ghost der Reflektion. Anwedung in der Prozessierung von reflektionsseismischen Daten.
 \[
 y_i = s_i * g_i.
 \]
@@ -239,3 +239,23 @@ was uns zu
 R_{yy}(i) = R_{ss}(i)*R_{gg}(i)
 \]
 führt.
+
+\section{Ambient Noise - Greensche Funktionen aus Rauschen}
+Die Greensche Funktion zwischen zwei Seismometer Stationen kann durch wiederholte Korrelation und Stapelung aus dem Hintergrundrauschen (\textit{Ambient Noise}) bestimmt werden. Dafür ist eine lange Registrierung des Rauschens an den zwei Stationen notwendig, Tage, Monate oder Jahre.
+
+\subsection{Datenbearbeitung}
+\subsubsection*{Vorbereitende Datenbearbeitung}
+Ist man allein an dem Hintergrundrauschen interessiert sind Erbebensignale Störsignale und müssen aus der Signalreihe gefiltert werden.\\
+Dazu kann die Zeitreihe z.B. mit der inversen der Envelope (siehe Sektion \ref{sec:signalyse_envelope}) gewichten werden, so werden die Signale mit hohen Energien im Zeitbereich gering Gewichtet.
+
+\subsubsection*{Korrelation}
+Korrelation der einzelnen Segmente (z.B. 12 oder 24 Stunden Segmente)
+\[
+R_{s_1 s_2}(t)
+\]
+
+\subsubsection*{Whitening im Frequenzbereich}
+Um alle Signale gleich zu betrachten wird ein \textit{whitening} der Kreuzkorrelation im Frequenzbereich durchgeführt. Das heisst dass die Amplituden aller Frquenzen im Signal 1 ist. Starke Frequenzen werden herunter gewichtet und schwache hoch.
+
+\subsubsection*{Rücktransformation und Stapelung}
+Nach anschließender Rücktransformation in den Zeitbereich werden die Kreuzkorrelationen aller Segmente gestapelt um die Greensche Funktion zwischen dem Stationspaar zu erhalten.
