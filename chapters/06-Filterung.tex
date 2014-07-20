@@ -17,7 +17,7 @@ y_{r} = y(T-t)
 \end{equation}
 Danach filtert man von links nach rechts:
 \begin{equation}
-y_{r}(\omega) = \exp^{-i\omega t} y^*(\omega) 
+y_{r}(\omega) = e^{-i\omega t} y^*(\omega) 
 \end{equation}
 Dabei ist $y^*(\omega)$ das Komplexkonjugierte von $y(t)$.\\
 \item Schritt: Eine erneute Filterung erfolgt: $z_{r}= F(\omega)y_{r}(\omega)$\\
@@ -27,7 +27,7 @@ z(t)=z_{r}(T-t)
 \end{equation}
 
 \begin{equation}
-z(\omega)=\exp^{-i\omega T}z_{r}^*(\omega) = \exp^{-i\omega T} F^*(\omega) \exp^{-i\omega T} F(\omega)X(\omega)
+z(\omega)=e^{-i\omega T}z_{r}^*(\omega) = \exp^{-i\omega T} F^*(\omega) e^{-i\omega T} F(\omega)X(\omega)
 \end{equation}
 Das ergibt ein sehr einfaches Ergebnis:
 \begin{equation}
@@ -47,15 +47,21 @@ Dieser Filter wird angewendet, um z.B. die Oberflächenwellen zu unterdrücken u
 
 \section{Tiefpassfilter}
 Abbildung \ref{fig:filt_tiefpass} zeigt den Verlauf der Ausgangsspannung $U_a$ eines Tiefpasses in Abhängigkeit der Frequenz. Signale mit Frequenzen unterhalb der Grenzfrequenz $f_g$ gelten als durchgelassene Signale. Signale mit Frequenzen oberhalb der Grenzfrequenz $f_g$ gelten als gesperrte Signale.\\
+Der Durchlassbereich ist der Bereich in dem gilt
+\[
+\vert F(\omega) \vert \approx 1.
+\]
+Im Sperrbereich gilt:
+\[
+\vert F(\omega) \vert \approx 0.
+\]
+Wobei die Amplitude auf $20 \log (0,7079)dB \approx 3dB$,  abklingt, dies ist die Eckfrequenz (eng. \textsl{Corner Frequency}).
 \begin{figure}[h!]
 \centering
 \includegraphics[width=.4\tw]{fig/06-Filter/tiefpass.png}
 \caption{Darstellung eines Tiefpassfilters im Frequenzbereich.}
 \label{fig:filt_tiefpass}
 \end{figure}
-Der Durchlassbereich ist der Bereich in dem gilt : $\vert F(\omega) \vert \approx 1 $.
-Im Sperrbereich gilt: $\vert F(\omega) \vert \approx 0 $. Wo die Amplitude auf: 
-$20log(0,7079)dB \approx 3dB$,  abklingt, dort ist die Eckfrequenz.
 
 \section{Hochpassfilter}
 Beim Hochpassfilter werden die Frequenzen bis zu einer bestimmten Frequenz $\omega_{h}$  gesperrt. Frequenzen ab dieser Frequenz $\omega_{h}$ werden durchgelassen.
@@ -70,7 +76,7 @@ Der Durchlassbereich liegt zwischen den Frequenzen $\omega_{1}$ und $\omega_{2}$
 $\vert F(\omega) \vert \approx 1 $ für $\omega_{1} \ll\omega \ll\omega_{2}$. Abbildung \ref{fig:filt_bandpass} zeigt den Bandpassfilter für die Frequenz um 440 Hz. 
 \begin{figure}[h!]
 \centering
-\includegraphics[width=.4\tw]{fig/06-Filter/bandpass.png}
+\includegraphics[width=.6\tw]{fig/06-Filter/bandpass.png}
 \caption{Darstellung eines Bandpassfilters im Frequenzbereich.}
 \label{fig:filt_bandpass}
 \end{figure}
