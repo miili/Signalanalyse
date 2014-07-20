@@ -240,13 +240,24 @@ R_{yy}(i) = R_{ss}(i)*R_{gg}(i)
 \]
 führt.
 
-\section{Ambient Noise - Greensche Funktionen aus Rauschen}
-Die Greensche Funktion zwischen zwei Seismometer Stationen kann durch wiederholte Korrelation und Stapelung aus dem Hintergrundrauschen (\textit{Ambient Noise}) bestimmt werden. Dafür ist eine lange Registrierung des Rauschens an den zwei Stationen notwendig, Tage, Monate oder Jahre.
+\section{Ambient Noise}
+Die Greensche Funktion zwischen zwei Seismometer Stationen kann durch wiederholte Korrelation und Stapelung aus dem Hintergrundrauschen (eng. \textsl{Ambient Noise}) bestimmt werden. Dafür ist eine lange Registrierung des Rauschens an den zwei Stationen notwendig, Tage, Monate oder Jahre.
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=.9\tw]{fig/07-Korrelation/ambient_noise-BRG_TNS_cross.png}
+\caption{Korrelogramm zeigt die Rayleigh Phasengeschwindigkeiten zwischen Seismometer Station BRG und TNS, erstellt aus Hintergrundrauschen.}
+\end{figure}
 
 \subsection{Datenbearbeitung}
 \subsubsection*{Vorbereitende Datenbearbeitung}
 Ist man allein an dem Hintergrundrauschen interessiert sind Erbebensignale Störsignale und müssen aus der Signalreihe gefiltert werden.\\
 Dazu kann die Zeitreihe z.B. mit der inversen der Envelope (siehe Sektion \ref{sec:signalyse_envelope}) gewichten werden, so werden die Signale mit hohen Energien im Zeitbereich gering Gewichtet.
+\begin{figure}
+\centering
+\includegraphics[width=.9\tw]{fig/07-Korrelation/ambient_noise-sketch.png}
+\caption{Schematische Darstellung der Datenbearbeitung für Ambient Noise Analyse. Phase 1 zeigt die Schritte für das vorbereitende Datenprocessing. Phase 2 umreisst die Kreuzkorrelation und das Stacking. Phase 3 beinhaltet die Dispersionsanalyse und Phase 4 die Fehleranalyse und Datenauswahl. Aus \cite{bensen_2007}}
+\end{figure}
 
 \subsubsection*{Korrelation}
 Korrelation der einzelnen Segmente (z.B. 12 oder 24 Stunden Segmente)
