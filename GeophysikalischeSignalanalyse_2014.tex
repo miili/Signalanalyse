@@ -17,8 +17,16 @@
 \usepackage{graphicx}                % wichtig, um externe Grafiken einbinden zu können
 
 \usepackage{fancyhdr}
-\pagestyle{fancyplain}
-\fancyhead[LE,RO]{\thechapter}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks,
+    citecolor=black,
+    filecolor=black,
+    linkcolor=black,
+    urlcolor=black
+}
+
+\fancyhead[LE,RO]{}
 
 \let\tw\textwidth
 
@@ -26,12 +34,15 @@
 
 \frontmatter
 \input{chapters/0T-titlepage.tex}
-
+\pagestyle{empty}
+\cleardoublepage
 \setcounter{page}{1}
 
 \tableofcontents                         % Inhaltsverzeichnis
+\cleardoublepage
 
 \mainmatter
+\pagestyle{fancyplain}
 
 \include{chapters/01-Einleitung}
 

@@ -176,3 +176,77 @@ Die Phase kann aus dem Amplitudenspektrum berechnet werden.
 \[
 \phi(\omega) = -H\{\ln(|F(\omega)|\}
 \]
+
+\section{Berechnung von Spektrogrammen}
+Die Spektrogramm Analyse zeigt die zeitliche Änderung des Spektrums im Zeit-Frequenz Bereich.\\
+Verschiedene Methoden um ein Spektrogram zu erstellen haben verschiedene Vor- und Nachteile:
+\begin{itemize}
+\item FFT mit gleitendem Fenster\\
+Nicht optimal, da die Zeitauflösung für alle Frequenzen gleich ist.
+\item Multiple-Filter-Technique
+\item Wavelet Transformation
+\item S-Bandpass
+\end{itemize}
+
+\subsection{Multiple-Filter-Technique}
+Die Multiple-Filter-Technique nutzt die Envelope verschobener Bandpass-Filter um das Spektrogram eines Signals zu bestimmen (nach Dziewonski et al., 1969)\\
+Die Envelopen der Bandpass gefilterten Signale seien
+\[
+\begin{split}
+f(\omega_1, t) & \rightarrow E(\omega_1, t)\\
+f(\omega_2, t) & \rightarrow E(\omega_2, t),
+\end{split}
+\]
+mit den zentralen Frequenzen $\omega_{1,2}$.\\\\
+Der Bandpass-Filter ist Gaussverteilt im Frequenzbereich um die Zentrale Frequenz $\omega_n$ mit der Breite $\alpha$:
+\[
+\begin{split}
+F(\omega_n, \omega) & = e^{-\alpha \left( \frac{|\omega|-\omega_n}{\omega_n} \right)^2}\\
+f(\omega_n, t) & = \frac{\omega_n \Delta t}{\sqrt{\alpha}} e^{-\frac{\omega_n^2}{4\alpha} t^2} \cos (\omega_n t)
+\end{split}
+\]
+Die Breite des Bandpass Filters sei
+\[
+\alpha = f(\omega_n) = \gamma^2 \omega_n \Delta t.
+\]
+Anschließend können die Envelopen $E(\omega_n, t)$ für viele $\omega_n$ in einer sog. Garbormatrix berechnet werden, die als Spektrogramm visualisiert werden kann.
+\[
+\begin{split}
+F\{x(t)\} & = X(\omega) \rightarrow F(\omega_n, \omega) X(\omega)\\
+Y(\omega_n, \omega) & = 
+\begin{cases}
+2 F(\omega_n, \omega) X(\omega) & w \geq 0\\
+0 & \mbox{sonst}
+\end{cases}\\
+F^{-1}\{Y(\omega_n, \omega\} & = y(\omega_n, t)\\
+\Rightarrow E(\omega_n, t) & = |y(\omega_n,t)|
+\end{split}
+\]
+
+\section{Z-Transformation}
+\paragraph{Definition mittels Zeitverschiebungsgesetz}
+\[
+\begin{split}
+\{x_j\} & = \{1,3,0,-1,-5\}\\
+x(z) & = 1z^0+3z^1+0z^2-1z^3-5z^4\\
+& = 1+3x-z^3-5z^4,
+\end{split}
+\]
+also ist
+\begin{equation}
+x(z) = Z\{x_j\} = \sum_{j=-\infty}^{\infty} x_j z^j.
+\end{equation}
+Alternative Definition ist auch
+\[
+x(z) = Z\{x_j\} = \sum_{j=-\infty}^{\infty} x_j z^{-j}.
+\]
+\paragraph{Definition mittels Fourier Transformation} unter Berücksichtigung des Verschiebungssatzes:
+\[
+\begin{split}
+x(t) & =  \sum_{j=-\infty}^{\infty} x_j \delta (t-j \Delta t) e^{i \omega t}\\
+F\{x(t)\} & = \int_{-\infty}{\infty}  \sum_{j=-\infty}^{\infty} x_j \delta (t-j \Delta t) e^{i \omega t} dt\\
+& = \sum_{j=-\infty}^{\infty} x_j \int_{-\infty}{\infty} \delta (t-j \Delta t) e^{i \omega t} dt\\
+& = \sum_{j=-\infty}^{\infty} x_j e^{i \omega t} dt
+\end{split}
+\]
+So ist $z = e^{i \omega \Delta t}$ und komplex.
