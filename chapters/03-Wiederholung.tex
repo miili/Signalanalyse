@@ -16,20 +16,21 @@ Beschreibt Wirkung eines linearen Systems. $x_1(t)$: Input, $x_2(t)$: Impulsantw
 Gibt ein Maß für Ähnlichkeit von$ x_1(t)$ und $x_2(t)$\\
 Kontinuierlich:
 \begin{equation}
-\rho_{x_1x_2}(t)= \int\limits_{-\infty}^{\infty} x_1(t')x_2(t'+t)dt',
+R_{x_1x_2}(t)= \int\limits_{-\infty}^{\infty} x_1(t')x_2(t'+t)dt',
 \end{equation}
 und diskret
 \begin{equation}
-\rho_{x_1x_2}(i) = \sum\limits_{j=-\infty}^{\infty} x_{1j} x_{2j+i}
+R_{x_1x_2}(i) = \sum\limits_{j=-\infty}^{\infty} x_{1j} x_{2j+i}
 \end{equation}
-
-Bei der Korrelationsfunktion wird unterschieden in \textit{Kreuzkorrelationsfunktion} (KKF), Korrelation zweier verschiedener Funktionen und \textit{Autokorrelationsfunktion} (AKF), Korrelation der Funktion mit sich selbst.
+Bei der Korrelationsfunktion wird unterschieden in
+\paragraph*{Kreuzkorrelationsfunktion} (KKF), Korrelation zweier verschiedener Funktionen und
+\paragraph*{Autokorrelationsfunktion} (AKF), Korrelation der Funktion mit sich selbst.
 
 \section{Fouriertransformation}
 Kontinuierliche Funktion $x(t)$ wird als Reihe von harmonischen Funktionen unterschiedlicher Frequenz ausgedrückt. Kontinuierliches Spektrum (Spektraldichte) $X(\omega)$. Die Fouriertransformation in den $f$-Bereicht ist $F$, und $F^{-1}$ die Rücktransformation in den Zeitbereich:
 \begin{align}
-\textbf{F}\{x(t)\}  & = X(\omega)=\int\limits_{-\infty}^{\infty} x(t) e^{-i\omega t}dt\\
-\textbf{F}^{-1}\{X(\omega)\} = x(t) & =\frac {1}{2\pi}\int\limits_{-\infty}^{\infty} X(\omega) e^{i\omega t}d\omega
+\textbf{F}\{x(t)\}  & = X(\omega) =\int\limits_{-\infty}^{\infty} x(t) e^{-i\omega t}dt\\
+\textbf{F}^{-1}\{X(\omega)\} & = x(t) =\frac {1}{2\pi}\int\limits_{-\infty}^{\infty} X(\omega) e^{i\omega t}d\omega
 \end{align}
 Die Diskrete Fouriertransformation (DFT): diskrete Wertereihe $\{x_j\}$, diskretes Spektrum (Spektraldichte) $\{X_k\}, ~~ j,k=0,\dots,N-1$.
 \begin{align}
@@ -40,8 +41,6 @@ Dabei ist $\{x_j\}$,$\{X_k\}$ periodisch, Periode: $N$\\
 
 \subsection{Darstellung des Spektrums}
 {\color{red} MUSS ÜBERARBEITET WERDEN!!!}
-
-
 Für ein diskretes Signal gilt das maximal Frequenzen bis zur Nyquistfrequenz abgetastet werden können. Die Nyquistfrequenz ist definiert als
 \begin{equation}
 f_{Ny} = \frac {1} {2 \Delta t N}
@@ -63,7 +62,7 @@ X_k= |X_k|e^{i\varphi_k},
 \]
 wobei $\varphi_k$ das Phasenspektrum ist, für das gilt:
 \[
-\varphi_k = \arctan \left(\frac{Im X_k}{Re X_k}\right) + 2n\pi
+\varphi_k = \arctan \left(\frac{Im\{X_k\}}{Re\{X_k\}}\right) + 2n\pi
 \]
 {\small Dabei ist $n \in \mathbb{G}$}\\\\
 Das bedeutet dass das Phasenspektrum aufgrund der harmonischen Schwingungen mehrdeutig ist. Deshalb wird entweder die Phase für verschiedene $n$ berechnet und dargestellt oder es wird für jedes $k$ ein $n$ gefunden, so dass der Betrag der Phasendifferenz für aufeinanderfolgende $k$ minimal ist. Man sagt, die Phase wird aufgerollt. Da eine Zeitverschiebung des Signals einen linearen Trend in der Phase erzeugt, kann der Zeitpunkt Null so verschoben werden, dass die Phase einen minimalen Trend zeigt. Z.B. kann der Schwerpunkt des Signals als Zeitpunkt Null gewählt werden, um einen linearen Trend in der Phase zu minimieren.
@@ -105,32 +104,20 @@ Vergleiche: $ \omega =\frac{2\pi}{T}$.
 \subsubsection{2-Dimensionale Fourier Transformation}
 Beispiele für 2-dimensionale Fourier Transformationen
 
-\[
-F(k_x,k_y)=\iint_{-\infty}^\infty f(x,y)e^{-i(k_xx+k_yy)} dx dy
-\]
-
-\[
-f(x,y)=\frac{1}{4\pi^2} \iint_{-\infty}^\infty F(k_x,k_y)e^{i(k_xx+k_yy)} dk_x dk_y
-\]
-
-\[
-F(k,\omega)=\iint_{-\infty}^\infty f(x,t)e^{-i(kx+\omega t)} dx dt
-\]
-
-\[
-f(x,t)=\frac{1}{4\pi^2}\ \iint_{-\infty}^\infty F(k,\omega)e^{i(kx+\omega t)} dk d\omega
-\]
+\begin{align}
+F(k_x,k_y) = &\iint_{-\infty}^\infty f(x,y)e^{-i(k_xx+k_yy)} dx dy\\
+f(x,y)= &\frac{1}{4\pi^2} \iint_{-\infty}^\infty F(k_x,k_y)e^{i(k_xx+k_yy)} dk_x dk_y\\
+F(k,\omega)= & \iint_{-\infty}^\infty f(x,t)e^{-i(kx+\omega t)} dx dt\\
+f(x,t)=&\frac{1}{4\pi^2}\ \iint_{-\infty}^\infty F(k,\omega)e^{i(kx+\omega t)} dk d\omega
+\end{align}
 
 \subsubsection{3-Dimensionale Fourier Transformation}
 Beispiele für 3-dimensionale Fourier Transformationen
 
-\[
-F(k_x,k_y,\omega)=\iiint_{-\infty}^\infty f(x,y,t)e^{-i(k_xx+k_yy+\omega t)} dx dy dt
-\]
-\[
-f(x,y,t)=\frac{1}{8\pi^3} \iiint_{-\infty}^\infty F(k_x,k_y,\omega))e^{i(k_xx+k_yy+\omega t)} dk_x dk_y d\omega
-\]
-
+\begin{align}
+F(k_x,k_y,\omega)= & \iiint_{-\infty}^\infty f(x,y,t)e^{-i(k_xx+k_yy+\omega t)} dx dy dt\\
+f(x,y,t)= & \frac{1}{8\pi^3} \iiint_{-\infty}^\infty F(k_x,k_y,\omega))e^{i(k_xx+k_yy+\omega t)} dk_x dk_y d\omega
+\end{align}
 
 \subsection{Sätze}
 
@@ -167,13 +154,13 @@ Der Faktor $1/i\omega$ bewirkt eine Phasenverschiebung um $-\mbox{sgn}(\omega) 9
 \begin{equation}
 \textbf{F} \{x_1(t) \ast x_2(t)\}= X_1(\omega) X_2(\omega)
 \end{equation}
-Faltung im Zeitbereich bedeutet Multiplikation im Frequenzbereich. Umgekehrt entspricht auch eine Multiplikation im Zeitbereich bis auf einen konstanten Faktor einer Faltung der Spektren im Frequenzbereich
+Faltung im Zeitbereich bedeutet Multiplikation im Frequenzbereich. Umgekehrt entspricht auch eine Multiplikation im Zeitbereich bis auf einen konstanten Faktor einer Faltung der Spektren im Frequenzbereich.
 
 \paragraph{Korrelationssatz}
 \begin{equation}
 \textbf{F} \{\rho_{x_1x_2}(t)\}= X_1^\ast(\omega) X_2(\omega)
 \end{equation}
-Beachten den Unterschied zum Faltungssatz. Wie beim Faltungssatz werden die Amplitudenspektren multipliziert. Die Phasenspektren werden aber subtrahiert, bei der Faltung addiert.
+Beachte den Unterschied zum Faltungssatz. Wie beim Faltungssatz werden die Amplitudenspektren multipliziert. Die Phasenspektren werden aber subtrahiert, bei der Faltung addiert.
 
 \paragraph{Rayleigh-Theorem}
 \begin{equation}
@@ -183,7 +170,7 @@ Power im Zeitbereich = $\frac{1}{2\pi}$ Power im Frequenzbereich.
 
 \paragraph{Ähnlichkeitssatz}
 \begin{equation}
-{\bf F} \{x(at)\}= \frac{1}{a} X(\frac{\omega}{a})
+{\bf F} \{x(at)\}= \frac{1}{a} X\left(\frac{\omega}{a}\right)
 \end{equation}
 Stauchung einer Funktion bzgl. Zeit im Zeitbereich entspricht Dehnung des Spektrums bzgl. Frequenz im Frequenzbereich.
 
@@ -211,7 +198,7 @@ Wie Aliasing des Signal vermieden werden kann:
 f_{max} < \frac {1}{2\Delta t}
 \]
 \item Antialiasingfilter: analoger Filter vor Digitalisierung der Messgröße.
-\item In der Praxis wird \textit{drei- bis vierfaches oversampling} empfohlen, so dass
+\item In der Praxis wird \textbf{drei- bis vierfaches} oversampling empfohlen, so dass
 \[
 f_{Ny}\approx 4-5 f_{max}.
 \]
