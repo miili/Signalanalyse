@@ -53,7 +53,7 @@ s_1(t)+s_2(t)= 2 \cos \left(\omega_1 t +\omega_1\frac{t_1+t_2}{2}\right)\, \cos 
 
 \begin{itemize}
 \item Die Frequenzen $\omega_1$ und $\omega_2$ bleiben erhalten.
-\item $\cos (\omega_1\frac{t_1-t_2}{2})=f_1$ und $ \cos(\omega_2\frac{t_1-t_2}{2})=f_2$ sind zeitunabhängige Wichtungsfaktoren für die beiden Frequenzen.
+\item $\cos \left(\omega_1\frac{t_1-t_2}{2} \right)=f_1$ und $ \cos\left(\omega_2\frac{t_1-t_2}{2}\right)=f_2$ sind zeitunabhängige Wichtungsfaktoren für die beiden Frequenzen.
 \item Für $\omega_1<\omega_2$ ist $f_1>f_2$, d.h. die Stapelung ist ein Tiefpass. Die Bedingung für konstruktive Interferenz ist für tiefe Frequenzen eher erfüllt als für hohe Frequenzen. 
 \end{itemize}
 
@@ -70,7 +70,7 @@ Nun werden viele Slowness Vektoren berechnet. Für die wahre Slowness $\vec{p}$ 
 \]
 So ist die Zeitverschiebung ist der Station $j$ für einen Slowness Vektor $\hat{\vec{p}}$ relativ zum Zentrum des Arrays $\vec{r}$:
 \begin{equation}
-\hat{t}_{j}=\hat{\vec{p}} \vec{r}
+\hat{t}_{j}=\hat{\vec{p}} \vec{r}_j
 \end{equation}
 Durch Summieren für eine bestimmte Slowness $\hat{\vec{p}}$ über alle Stationen wird ein Beam $b(t)$ erzeugt:
 \begin{equation}
@@ -127,11 +127,12 @@ Weiter ist die Länge des Wellenzahlvektors in Relation zur slowness definiert a
 \vec{k} = \vec{n} k = \vec{n} \dfrac{\omega}{c_x} = \vec{n} \omega p= \omega \vec{p} 
 \end{equation}
 Aus der Richtung und der Länge des Wellenzahlvektors $\vec{k}$ berechnet man dann den Slownessvektor $\vec{p}$.\\
-Eine wichtige Rolle bei der f-k-Analyse spielt das Auflösungsvermögen eines Arrays welche durch die Array-Antwort (eng. \textsl{Array Response}) beschrieben wird. Eine große Fläche des Arrays bedeutet eine hohe Auflösung im Wellenzahlbereich. Eine kleinere Fläche dagegen entspricht einer geringeren Auflösung. Bei einer geringen Stationsdichte entsteht bei f-k-Analyse kein klares Maximum im Wellenzahlbereich.\\
-Modell: Im Ortsbereich nimmt man $u(x_j,y_j,t) = \delta(t-t_j)$ an, das entspricht $u(x_j,y_j,t)= e^{-i\omega t_{j}}$ im Frequenzbereich. Mit dem Stationsvektor $\vec{r_{j}}$ ist $u(x_j,y_j,t) = e^{-i\vec{k}\vec{r}_j}$  im Frequenzbereich.
+Eine wichtige Rolle bei der f-k-Analyse spielt das Auflösungsvermögen eines Arrays welche durch die Array-Antwort (eng. \textsl{Array Response}) beschrieben wird. Eine große Fläche des Arrays bedeutet eine hohe Auflösung im Wellenzahlbereich. Eine kleinere Fläche dagegen entspricht einer geringeren Auflösung. Bei einer geringen Stationsdichte entsteht bei f-k-Analyse kein klares Maximum im Wellenzahlbereich.
+
+\paragraph{Modell} Im Ortsbereich nimmt man $u(x_j,y_j,t) = \delta(t-t_j)$ an, das entspricht $u(x_j,y_j,t)= e^{-i\omega t_{j}}$ im Frequenzbereich. Mit dem Stationsvektor $\vec{r}_j$ ist $u(x_j,y_j,t) = e^{-i\vec{k}\vec{r}_j}$  im Frequenzbereich.
 Mit dem Verschiebungssatz folgt:
 \begin{equation}
-FK(\hat{\vec{k}},\omega) = \sum_{j} e^{i( \hat{k}-k)\vec{r_{j}}}
+FK(\hat{\vec{k}},\omega) = \sum_{j} e^{i( \hat{k}-k)\vec{r}_j}
 \end{equation}
 Die 3D-Fourier Transformation liefert dann eine sinc-Funktion im Wellenzahlbereich. Ein Array, das im Ortsbereich  in $x$-Richtung gestreckt ist, zeigt eine elliptische Auflösung im Wellenzahlbereich.\\
 Ein Array, das linear ausgerichtet ist, ist nicht optimal für die Frequenz-Wellenzahl-Analyse. Nur ein Array, das eine Fläche abdeckt zeigt ein eindeutiges Maximum im Wellenzahlbereich.

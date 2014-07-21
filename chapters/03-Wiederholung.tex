@@ -26,18 +26,20 @@ Bei der Korrelationsfunktion wird unterschieden in
 \paragraph*{Kreuzkorrelationsfunktion} (KKF), Korrelation zweier verschiedener Funktionen und
 \paragraph*{Autokorrelationsfunktion} (AKF), Korrelation der Funktion mit sich selbst.
 
-\section{Fouriertransformation}
-Kontinuierliche Funktion $x(t)$ wird als Reihe von harmonischen Funktionen unterschiedlicher Frequenz ausgedrückt. Kontinuierliches Spektrum (Spektraldichte) $X(\omega)$. Die Fouriertransformation in den $f$-Bereicht ist $F$, und $F^{-1}$ die Rücktransformation in den Zeitbereich:
+\section{Fourier-Transformation}
+Kontinuierliche Funktion $x(t)$ wird als Reihe von harmonischen Funktionen unterschiedlicher Frequenz ausgedrückt. Kontinuierliches Spektrum (Spektraldichte) $X(\omega)$. Die Fourier-Transformation in den Frequenzbereich ist $F$, und $F^{-1}$ die Rücktransformation in den Zeitbereich:
 \begin{align}
 \textbf{F}\{x(t)\}  & = X(\omega) =\int\limits_{-\infty}^{\infty} x(t) e^{-i\omega t}dt\\
 \textbf{F}^{-1}\{X(\omega)\} & = x(t) =\frac {1}{2\pi}\int\limits_{-\infty}^{\infty} X(\omega) e^{i\omega t}d\omega
 \end{align}
-Die Diskrete Fouriertransformation (DFT): diskrete Wertereihe $\{x_j\}$, diskretes Spektrum (Spektraldichte) $\{X_k\}, ~~ j,k=0,\dots,N-1$.
+
+\paragraph{Diskrete Fourier-Transformation} (DFT) transformiert eine diskrete Wertereihe $\{x_j\}$ in ein diskretes Fourier Spektrum (Spektraldichte) $\{X_k\}, ~~ j,k=0,\dots,N-1$.
 \begin{align}
-DFT\{ x_j \} = X_k & =\sum\limits_{j=0}^{N-1}x_j e^{-i2\pi jk/N} \\
-DFT^{-1}\{X_k\} = x_j & =\frac{1}{N} \sum\limits_{k=0}^{N-1}X_k e^{-2\pi jk/N}
+\mathrm{DFT}\{ x_j \} = X_k & =\sum\limits_{j=0}^{N-1}x_j\,e^{-2\pi i \frac{jk}{N}} \\
+\mathrm{DFT}^{-1}\{X_k\} = x_j & =\frac{1}{N} \sum\limits_{k=0}^{N-1}X_k\,e^{2\pi i \frac{jk}{N}}
 \end{align}
-Dabei ist $\{x_j\}$,$\{X_k\}$ periodisch, Periode: $N$\\
+Dabei ist $e^{-i \omega t} = \cos(\omega t) + i \sin(\omega t)$.\\
+Die Zeitreihe $\{x_j\}$ und das Fourierspektrum $\{X_k\}$ periodisch über $N$.
 
 \subsection{Darstellung des Spektrums}
 {\color{red} MUSS ÜBERARBEITET WERDEN!!!}
@@ -64,7 +66,7 @@ wobei $\varphi_k$ das Phasenspektrum ist, für das gilt:
 \[
 \varphi_k = \arctan \left(\frac{Im\{X_k\}}{Re\{X_k\}}\right) + 2n\pi
 \]
-{\small Dabei ist $n \in \mathbb{G}$}\\\\
+Wobei $n \in \mathbb{G}$\\\\
 Das bedeutet dass das Phasenspektrum aufgrund der harmonischen Schwingungen mehrdeutig ist. Deshalb wird entweder die Phase für verschiedene $n$ berechnet und dargestellt oder es wird für jedes $k$ ein $n$ gefunden, so dass der Betrag der Phasendifferenz für aufeinanderfolgende $k$ minimal ist. Man sagt, die Phase wird aufgerollt. Da eine Zeitverschiebung des Signals einen linearen Trend in der Phase erzeugt, kann der Zeitpunkt Null so verschoben werden, dass die Phase einen minimalen Trend zeigt. Z.B. kann der Schwerpunkt des Signals als Zeitpunkt Null gewählt werden, um einen linearen Trend in der Phase zu minimieren.
 
 \subsubsection*{Verwendung von Zeitfenstern}
@@ -119,11 +121,11 @@ F(k_x,k_y,\omega)= & \iiint_{-\infty}^\infty f(x,y,t)e^{-i(k_xx+k_yy+\omega t)} 
 f(x,y,t)= & \frac{1}{8\pi^3} \iiint_{-\infty}^\infty F(k_x,k_y,\omega))e^{i(k_xx+k_yy+\omega t)} dk_x dk_y d\omega
 \end{align}
 
-\subsection{Sätze}
+\subsection{Transformations Sätze}
 
 \paragraph{Umkehrsatz}
 \begin{equation}
-\textbf{F} \{X(\omega)\}=2\pi x(-t)
+\textbf{F} \{X(\omega)\}=\frac{1}{2\pi} x(-t)
 \end{equation}
 Vergleiche:
 \[
@@ -133,38 +135,38 @@ Vergleiche:
 
 \paragraph{Verschiebungssatz}
 \begin{equation}
-\textbf{F} = \{x(t+b)\}=e^{ib\omega}X(\omega)
+\textbf{F}\{x(t+b)\}=e^{ib\omega}X(\omega)
 \end{equation}
-$e^{ib\omega}$ ändert Phase nicht das Amplitudenspektrum, ein Linearer Trend wird zur Phase addiert.
+$e^{ib\omega}$ ändert das Phasen- aber nicht das Amplitudenspektrum, ein Linearer Trend wird zur Phase addiert.
 
 
 \paragraph{Differentiationssatz}
 \begin{equation}
-\textbf{F}\{x^\prime(t)\}=i\omega X(\omega)
+\textbf{F}\{x^\prime(t)\}=i\omega\,X(\omega)
 \end{equation}
 Der Faktor $i \omega$ bewirkt eine Phasenverschiebung um $\mbox{sgn}(\omega) 90^\circ$ und hohe Frequenzen werden verstärkt.
 
 \paragraph{Integrationssatz}
 \begin{equation}
-\textbf{F} \{\int\limits_{-\infty}^{t} x(t')dt'\}=\frac{1}{i\omega} X(\omega)
+\textbf{F} \left\lbrace \int_{-\infty}^{t} x(t')dt' \right\rbrace = \frac{1}{i\omega}\,X(\omega)
 \end{equation}
 Der Faktor $1/i\omega$ bewirkt eine Phasenverschiebung um $-\mbox{sgn}(\omega) 90^\circ$ und tiefe Frequenzen werden verstärkt.
 
 \paragraph{Faltungssatz} 
 \begin{equation}
-\textbf{F} \{x_1(t) \ast x_2(t)\}= X_1(\omega) X_2(\omega)
+\textbf{F} \{x_1(t) * x_2(t)\}= X_1(\omega) X_2(\omega)
 \end{equation}
-Faltung im Zeitbereich bedeutet Multiplikation im Frequenzbereich. Umgekehrt entspricht auch eine Multiplikation im Zeitbereich bis auf einen konstanten Faktor einer Faltung der Spektren im Frequenzbereich.
+Faltung im Zeitbereich ist Multiplikation im Frequenzbereich. Umgekehrt entspricht auch eine Multiplikation im Zeitbereich bis auf einen konstanten Faktor einer Faltung der Spektren im Frequenzbereich. Bei der Faltung werden die Amplitudenspektren multipliziert und die Phasenspektren addiert.
 
 \paragraph{Korrelationssatz}
 \begin{equation}
-\textbf{F} \{\rho_{x_1x_2}(t)\}= X_1^\ast(\omega) X_2(\omega)
+\textbf{F} \{R_{x_1x_2}(t)\}= X_1^\ast(\omega) X_2(\omega)
 \end{equation}
-Beachte den Unterschied zum Faltungssatz. Wie beim Faltungssatz werden die Amplitudenspektren multipliziert. Die Phasenspektren werden aber subtrahiert, bei der Faltung addiert.
+Beachte den Unterschied zum Faltungssatz. Die Amplitudenspektren werden multipliziert (vgl. Faltungssatz) und die Phasenspektren subtrahiert.
 
 \paragraph{Rayleigh-Theorem}
 \begin{equation}
-\int\limits_{-\infty}^{\infty} | x(t) |^2 dt = \frac{1}{2\pi} \int\limits_{-\infty}^{\infty} | X(\omega)|^2 d\omega
+\int\limits_{-\infty}^{\infty} | x(t) |^2 dt = \frac{1}{2\pi} \int_{-\infty}^{\infty} | X(\omega)|^2 d\omega
 \end{equation}
 Power im Zeitbereich = $\frac{1}{2\pi}$ Power im Frequenzbereich.
 

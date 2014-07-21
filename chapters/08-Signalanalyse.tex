@@ -120,17 +120,16 @@ F\{x(t)\} = & X(\omega)\\
 
 \subsection{Berechnung der Envelope}
 \label{sec:signalyse_envelope}
-Die Envelope des Signals ist die \textit{Einhüllende} der Signalreihe. Die Envelope ist definiert als
+Die Envelope des Signals ist die \textit{Einhüllende} der Signalreihe. Die Envelope ist definiert als der Betrag des \textit{analytischen} Signals.
 \begin{equation}
 E(t) = |y(t)|,
 \end{equation} 
-der Betrag des \textit{analytischen} Signals.
+
 \begin{figure}[h!]
 \centering
 \includegraphics[width=.9\tw]{fig/08-Signalanalyse/envelope.png}
 \caption{Die Einhüllende (Envelope) des Signals.}
 \end{figure}
-
 
 \subsection{Beispiele}
 Sei das Signal definiert als:
@@ -168,7 +167,7 @@ Konstruktion eines kausalen, nullphasigen Signals für ein gegebenes Amplitudens
 \[
 \begin{split}
 F(\omega) & = |F(\omega)|\, e^{-\phi(\omega)}\\
-G(\omega) & = \ln(F(\omega)) = \ln(|F(\omega)| + i\,\phi(\omega)
+G(\omega) & = \ln(F(\omega)) = \ln(|F(\omega)|) + i\,\phi(\omega)
 \end{split}
 \]
 Durch $\ln$ haben wir die Form des analytischen Signals.\\\\

@@ -64,13 +64,12 @@ Diese Näherung ist sehr einfach zu berechnen. Sie ist nicht exakt, aber oft aus
 In einem gleitenden Fenster können statt dem Mittelwert auch Quartile geschätzt werden. Quantile $Q_p$ ist der Wert $s$, für den die Verteilungsfunktion $\underline P(s)=p$ ist. $Q_{0.5}$ ist der Median, $Q_{0.25},Q_{0.5},Q_{0.75}$ sind Quartile der Verteilung.
 
 \section{Saisonale Komponenten}
-Interessant ist auch der Fall, in dem eine periodischer Anteil (saisonale Komponente) bestimmt werden und möglicherweise beseitigt werden sollen.
+Interessant ist auch der Fall, in dem eine periodischer Anteil (saisonale Komponente) bestimmt werden und möglicherweise beseitigt werden sollen. Die saisonale Komponente kann z.B. Jahres- oder Tagesgang, das 60 Hz Stromnetz oder die Milankovic-Zyklen sein - Signale die Periodizitäten aufweisen.
 \[
 x_i=s_i + y_i
 \]
-Dabei ist $x_i$: Wertereihe, $s_i$: saisonale Komponente (z.B. Jahres-, Tagesgang, 60 Hz Stromnetz oder Milankovic-Zyklen) und $y_i$: Signalreihe.\\\\
+Dabei ist $x_i$ Wertereihe, $s_i$ saisonale Komponente und $y_i$ Signalreihe.\\\\
 Mögliche Methoden um die Saisonale Komponente Im Signal zu erfassen:
-
 \begin{enumerate}
 \item Kann man die Signalreiehe Differenzieren oder Filtern? Hilft es das Spektrum zu berechnen, um Frequenzen der saisonalen Komponente zu erkennen.
 
@@ -116,7 +115,7 @@ a_2 \sin(\varphi_2)
 \]
 Mithilfer der Methode der Kleinsten Quadrate Lösen wir:
 \[
-E = \sum\limits_i (x_i- \sum\limits_j c_j b_{ji})^2
+E = \sum\limits_i \left(x_i- \sum\limits_j c_j b_{ji} \right)^2
 \]
 zu
 \[
@@ -132,7 +131,7 @@ a_j=(c_j^2+c_{j+a}^2)^{0.5}, \varphi_j=\arctan(\frac{c_{j+a}}{c_j})
 \end{enumerate}
 
 \section{Resampling einer Signalreihe}
-Will man den Abtastschritt (eng. \textsl{Samplingrate}) einer schon aufgezeichneten Zeitereihe ändern kann die Interpolation des Signals im Frequenz oder Zeitbereich durchgeführt werden.
+Will man den Abtastschritt (eng. \textsl{Samplingrate}) einer schon aufgezeichneten Zeitereihe ändern kann die Interpolation des Signals im Frequenz- oder Zeitbereich durchgeführt werden.
 
 \subsection{Interpolation im Zeitbereich}
 Im Zeitbereich kann der Abtastschritt einer diskreten Signalreihe durch harmonisch überlagernde $Sinc$ Funktionen erhöht werden.
