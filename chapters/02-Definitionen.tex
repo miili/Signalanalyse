@@ -1,19 +1,19 @@
 \chapter{Begriffe und Definitionen}
 \section{Kontinuierlich und Diskret}
-Das zu messende Feld ist in der Regel eine kontinuierliche Funktion von Ort oder Zeit z.B. $x(t)$. Dabei ist $t$ die unabhängige und $x$ die abhängige Variable. Sowohl abhängige wie unabhängige Variablen sind kontinuierlich und können in einem bestimmten Wertebereich stufenlos jeden Wert annehmen. Durch Art der Messung (z.B. punktweise Messung) und Diskretisierung wird eine diskrete Wertereihe erhalten, wobei abhängige und unabhängige Variablen nur bestimmte, mit endlich vielen Ziffern darstellbare Werte annehmen können. Das Resultat ist die diskrete Wertereihe  $\{x_{i}\}=\{x_{1}, x_{2}, x_{3}, \dots, x_N\}$, wobei $t_{i}=i\Delta t$, mit $i=1,2, \dots, N,$ ist, mit einem Abtastschritt $\Delta t$. Nur diskrete Wertereihen sind für die digitale Bearbeitung mit Computern geeignet.  Die Funktion $x(t)=\cos(\omega t)$ ist kontinuierlich bzgl. Zeit und Amplitude, die Wertereihe $\{ x_i \}= \{1,0,-1,0,1,0,-1,0\}$ ist dagegen diskret bzgl. Zeit und Amplitude. Die Spannung am Ausgang eines Seismometers ist kontinuierlich bzgl. Zeit und Amplitude, während die Spannung am Ausgang eines Computers zwar kontinuierlich bzgl. der Zeit ist, mitunter aber nur bestimmte Werte annehmen kann, also diskret bzgl. der Amplitude sein kann. Man muss also eine Diskritisierung bezüglich der Zeit oder bezüglich der Amplitude durchführen um die Messdaten digial bearbeiten zu können.\\
+Das zu messende Feld ist in der Regel eine kontinuierliche Funktion von Ort oder Zeit z.B. $x(t)$. Dabei ist $t$ die unabhängige und $x$ die abhängige Variable. Sowohl abhängige wie unabhängige Variablen sind kontinuierlich und können in einem bestimmten Wertebereich stufenlos jeden Wert annehmen. Durch Art der Messung (z.B. punktweise Messung) und Diskretisierung wird eine diskrete Wertereihe erhalten, wobei abhängige und unabhängige Variablen nur bestimmte, mit endlich vielen Ziffern darstellbare Werte annehmen können. Das Resultat ist die diskrete Wertereihe  $\{x_{i}\}=\{x_{1}, x_{2}, x_{3}, \dots, x_N\}$, wobei $t_{i}=i\Delta t$ mit $i=1,2, \dots, N,$ ist, mit einem Abtastschritt $\Delta t$. Nur diskrete Wertereihen sind für die digitale Bearbeitung mit Computern geeignet.  Die Funktion $x(t)=\cos(\omega t)$ ist kontinuierlich bzgl. Zeit und Amplitude, die Wertereihe $\{ x_i \}= \{1,0,-1,0,1,0,-1,0\}$ ist dagegen diskret bzgl. Zeit und Amplitude. Die Spannung am Ausgang eines Seismometers ist kontinuierlich bzgl. Zeit und Amplitude, während die Spannung am Ausgang eines Computers zwar kontinuierlich bzgl. der Zeit ist, mitunter aber nur bestimmte Werte annehmen kann, also diskret bzgl. der Amplitude sein kann. Man muss also eine Diskritisierung bezüglich der Zeit oder bezüglich der Amplitude durchführen um die Messdaten digial bearbeiten zu können.\\
 
 Die Darstellung einer Messgröße kann analog oder digital erfolgen, d.h. in Form einer messbaren physikalischen Größe bzw. in Form von Ziffern. Beispiele für analoge Darstellungen sind graphische Darstellungen auf Bildschirm oder Papier, Seismogrammschriebe, wie sie bis in die 70er Jahre des letzten Jahrhunderts üblich waren oder Aufzeichnungen auf Magnetband.  Die Anzeige der Uhrzeit kann analog oder digital erfolgen.  Die Auflistung von Wertereihen ist dagegen ein Beispiel für die digitale Darstellung. Die Schallplatte ist ein analoger Datenträger, eine CD oder DVD sind digtiale Datenträger. Die digitale Darstellung von Diskreten Zahlen kann mittels Binärzahlen zur Basis 2 erfolgen. Beispiel der ganzen Zahl 11 als Binärzahl 1011,
 \[
-11 = \mathrm{bin}(1011) =1\cdot 2^{3} + 0 \cdot 2^2 + 1 \cdot 2^1 + 1 \cdot 2^0 =11.
+11 = \mathrm{bin}(1011) =1\cdot 2^{3} + 0 \cdot 2^2 + 1 \cdot 2^1 + 1 \cdot 2^0 = 11.
 \]
 Um einen großen Wertebereich mit wenigen Bits darzustellen, kann eine Verstärkung definiert werden. Ein Beispiel ist die 16-Bit Datenerfassung die für die Darstellung von seismologischen Registrierungen verwendet worden ist. Dazu wurden ein Bit für das Vorzeichen $V$, nur 11 Bits für die binäre Darstellung eines Faktors $F$  und 4 Bits für die binäre Darstellung des Exponent $E$ von 2 benötigt, durch den eine Verstärkung definiert wurde: $2^{E}$. Der dargestellte Wert ergibt sich dann nach
 \begin{equation}
 x = V\,F\,2^E. 
 \end{equation}
-So ist im 16-Bit System $F_{min}=0$ und $F_{max}=2^{11}-1 = 2047$. Für $E_{min}=0$und $E_{max}=2^{4}-1=15$ und also ist die maximale Verstärkung $2^{15}$. So ergibt sich für den maximal darstellbaren Wert $x_{max}=(2^{11}-1) \cdot 2^{15} \approx 2^{26}$. Der minimale Wert hat ein negatives Vorzeichen und ist $x_{min} \approx = -2^{26}$.\\
+So ist im 16-Bit System $F_{min}=0$ und $F_{max}=2^{11}-1 = 2047$. Für $E_{min}=0$ und $E_{max}=2^{4}-1=15$ und also ist die maximale Verstärkung $2^{15}$. So ergibt sich für den maximal darstellbaren Wert $x_{max}=(2^{11}-1) \cdot 2^{15} \approx 2^{26}$. Der minimale Wert hat ein negatives Vorzeichen und ist $x_{min} \approx = -2^{26}$.\\
 Die Verstärkung muss optimal gewählt werden, um die kleinsten Bodenbewegungen zu registrieren und gleichzeitig auch große Bewegungen darzustellen.
 
-\subsection{Dynamik einer Signals}
+\subsection{Dynamik eines Signals}
 Die Dynamik oder auch der Dynamikumfang ist das Verhältnis zwischen maximalem darstellbaren Betrag und minimalem darstellbaren Betrag größer Null. Der Dynamikumfang wird ausgedrückt als
 \begin{equation}
 20\log \frac{A_{\textrm{max}}}{A_{\textrm{min}}}\,dB\footnote{Die Einheit ist dB und steht für Dezibel. Dieses Kunstwort ist angelehnt an Graham Bell den Erfinder des Telefons.}
@@ -95,12 +95,12 @@ Mit der Fehlerfunktion der Gaußschen Normalverteilung
 \]
 folgt für die Verteilungsfunktion
 \[
-P(s) = \frac{1}{2}(\mbox{erf}\left(\frac{s-m}{\sqrt{2} \sigma}) + 1\right).
+P(s) = \frac{1}{2} \left( \mbox{erf}\left(\frac{s-m}{\sqrt{2} \sigma} \right) + 1\right).
 \]
 Der Wertebereich der Fehlerfunktion ist $[-1,1]$ und der Wertebereich der Verteilungsfunktion ist wie immer $[0,1]$. Aufgrund der Symmetrie der Gaußschen Wahrscheinlichkeitsdichteverteilung gilt $P(m-s) = 1 - P(m+s)$.
 
 \subsection{Erwartungswerte und Momente}
-Eigenschaften von Zufallsgrößen können sehr einfach mit Hilfe des Erwartungswertes und statistischer Momente beschrieben werden. Der \textit{Erwarungswert}, $E[x]$, der Zufallsgröße $x$ ist gleichzeitig der Schwerpunkt der Wahrscheinlichkeitsdichtefunktion:
+Eigenschaften von Zufallsgrößen können sehr einfach mit Hilfe des Erwartungswertes und statistischer Momente beschrieben werden. Der Erwarungswert $E[x]$ der Zufallsgröße $x$ ist gleichzeitig der Schwerpunkt der Wahrscheinlichkeitsdichtefunktion:
 \begin{equation}
 E[x] = \int\limits_{-\infty}^{\infty}sp(s)ds
 \end{equation}
@@ -161,14 +161,14 @@ Ausgedrückt in Erwartungswerten zeigt sich
 \[
 \alpha_2 = E[(x-E[x])^2].
 \]
-Aus einer Messreiehe kann die Varianz der Messwerte bestimmt werden als
+Aus einer Messreihe kann die Varianz der Messwerte bestimmt werden als
 \begin{equation}
 \mbox{Var} = \sigma^2=\frac{1}{N-1}\sum \limits_{i=1}^N (x_i - \bar x)^2.
 \end{equation}
-Dabei ist $\sigma$ die \textsl{Standardabweichung} der Wertereiehe.\\\\
+Dabei ist $\sigma$ die \textbf{Standardabweichung} der Wertereihe.\\\\
 Auch für eine Schätzung kann die Varianz angegeben werden:
 \[
-E[(\hat{m}-E[\hat{m}])^2]
+E \left[ (\hat{m}-E[\hat{m}])^2\right]
 \]
 Für eine Gaußsche Zufallsgröße ist die Varianz für die Schätzung des Mittelwertes
 \[
@@ -181,7 +181,7 @@ Die Standardabweichung der Schätzung des Mittelwertes (\textit{Standardfehler})
 Wenn die Verzerrung und die Varianz einer Schätzung gegen Null gehen und $N$ gegen Unendlich, handelt es sich um eine \textit{konsistente Schätzung}. Das ist im Fall der Schätzung des Mittelwertes der Fall.\\
 
 \subsubsection*{Höhere Momente}
-Es können auch \textit{höhere Momente} definiert werden. Das $n$-te Moment ist:
+Es können auch höhere Momente definiert werden. Das $n$-te Moment ist:
 \[
 m_n=E[x^n]
 \]
@@ -196,14 +196,14 @@ Für das $n$-te \textit{zentrale höhere Moment} gilt der Erwartungswert:
 \]
 Die Schätzung des $n$-ten Moments aus einer diskreten Wertereihe ist definiert als:
 \begin{equation}
-\hat{\alpha_n}=\frac {1}{N-1} \sum_{i=1}^N (x_i - \bar x)^n
+\hat{\alpha}_n=\frac {1}{N-1} \sum_{i=1}^N (x_i - \bar x)^n
 \end{equation}
 
-Die Eigenschaften einer Zufallsgröße können auch durch die Gesamtheit der Momente eindeutig beschrieben werden. So beschreiben höherer Momente die \textbf{Schiefe} und die \textbf{Kurtosis}. Die Schiefe ($S$) ist ein Maß für die Asymetrie der Verteilungsdichtefunktion
+Die Eigenschaften einer Zufallsgröße können auch durch die Gesamtheit der Momente eindeutig beschrieben werden. So beschreiben höherer Momente die \textbf{Schiefe} und die \textbf{Kurtosis}. Die Schiefe $S$ ist ein Maß für die Asymetrie der Verteilungsdichtefunktion
 \[
 S = \frac {\alpha_3}{\sigma^3}=\frac {\alpha_3}{\alpha_2^{\frac{3}{2}}}
 \]
-und die Kurtosis ($K$) ein Maß für die Abweichung von der Gaußverteilung:
+und die Kurtosis $K$ ein Maß für die Abweichung von der Gaußverteilung:
 \[
 K=\frac {\alpha_4}{\sigma^4}=\frac {\alpha_4}{\alpha_2^2}
 \]
@@ -220,7 +220,7 @@ für die Schiefe, bzw. für die Kurtosis:
 
 \subsection{Stochastischer Prozess}
 
-Eine Folge von Zufallsgrößen ${x_i}$ wird als stochastischer Prozess oder Zufallsprozess $\{x_i\}$ bezeichnet. Ein stochastischer Prozess kann auch eine kontinuierliche Funktion, z.B. der Zeit, sein: $x(t)$.\\\\
+Eine Folge von Zufallsgrößen $\{x_i\}$ wird als stochastischer Prozess oder Zufallsprozess $\{x_i\}$ bezeichnet. Ein stochastischer Prozess kann auch eine kontinuierliche Funktion, z.B. der Zeit, sein: $x(t)$.\\\\
 Dabei existiert für jeden Index $i$ bzw. jede Zeit $t$ eine Zufallsgröße, deren Eigenschaften durch Wahrscheinlichkeitsdichtefunktionen beschrieben werden. So kann z.B. für eine seismische Spur das Modell eines stochastischen Prozesses angenommen werden. Jede einzelne Spur (Messung) wird dann als Realisierung eines stochastischen Prozesses angesehen.\\
 Im Folgenden wird die Realisierung des stochastischen Prozesses $\{x_i\}$ mit dem Index $j$ beschrieben:
 \[
@@ -247,7 +247,7 @@ Das Signal-Rausch-Verhältnis (eng. \textsl{Signal-To-Noise ratio}, SNR) dient d
 \[
 x_i=s_i + n_i
 \]
-Dabei sind $x_i$ die untersuchte Wertereihe, $s_i$ das Nutzsignal und  $n_i$ ist störendes Rauschen. Weiterhin soll gelten $E[s_i]=E[n_i]=0$ und $max\{|s_i|\}=|s|_{max}$ bzw. $max\{|n_i|\}=|n|_{max}$.\\
+Dabei sind $x_i$ die untersuchte Wertereihe, $s_i$ das Nutzsignal und  $n_i$ ist störendes Rauschen. Weiterhin soll gelten $E[s_i]=E[n_i]=0$ und $\max\{|s_i|\}=|s|_{max}$ bzw. $\max\{|n_i|\}=|n|_{max}$.\\
 In Abhängigkeit des Modells gibt es verschiedene Möglichkeiten für die Abschätzung des SNR. Dabei ist entscheidend, welche Komponenten als deterministisch bzw. stochastisch angenommen werden.
 \begin {itemize}
 \item $s_i$ und $n_i$ sind deterministisch:
@@ -268,7 +268,7 @@ In Abhängigkeit des Modells gibt es verschiedene Möglichkeiten für die Absch�
 \]
 \end{itemize}
 
-Für die Schätzung von $|s|_{max}, \sigma_s$ bzw. $|n|_{max}, \sigma_n$ wird ein Zeitfenster ausgesucht, in dem für das Rauschen  $n_i\approx 0$ gilt (Signalfenster) bzw. ein Rauschfenster in dem $s_i \approx 0$ ist. Überlagern sich Rauschen und Signal zeitlich ständig, müssen weitergehende Analysen durchgeführt werden.
+Für die Schätzung von $|s|_{max}$ und $\sigma_s$ bzw. $|n|_{max}$ und $\sigma_n$ wird ein Zeitfenster ausgesucht, in dem für das Rauschen  $n_i\approx 0$ gilt (Signalfenster) bzw. ein Rauschfenster in dem $s_i \approx 0$ ist. Überlagern sich Rauschen und Signal zeitlich ständig, müssen weitergehende Analysen durchgeführt werden.
 
 
 \section{Energie- und Leistungssignal}
@@ -276,8 +276,8 @@ Ein transientes Signal, d.h. ein Signal endlicher zeitlicher Länge, wird auch a
 \[
 \int_a^b |s(t)|^2 dt < \infty
 \]
-Ein Leistungssignal besitzt eine unendliche zetliche Länge, d.h. es dauert länger an als Beobachtungsintervall lang ist. 
-Es wird die Leistung in dem Zeitintervall $[a,b]$ bestimmt
+Ein Leistungssignal besitzt eine unendliche zeitliche Länge, d.h. es dauert länger an als das Beobachtungsintervall lang ist. 
+Es wird die Leistung in dem Zeitintervall $[a, b]$ bestimmt
 \[
 \frac{1}{b-a}\int\limits_a^b |s(t)|^2 dt.
 \]
